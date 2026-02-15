@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Use Case: Employee Attrition Prediction
+## 🎯 Use Case: Employee Attrition Prediction Model
 
 Every phase in this repo uses the same real-world problem: **predicting employee attrition for a large organisation (~500,000 employees)**. This keeps the focus on *infrastructure and operations* rather than data-science theory.
 
