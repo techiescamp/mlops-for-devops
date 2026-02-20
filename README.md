@@ -14,10 +14,10 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 - [Prerequisites](#prerequisites)
 - [Learning Path](#learning-path)
   - [Phase 1 — Local Development \& Data Pipelines](#phase-1--local-development--data-pipelines)
-  - [Phase 2 — Deployment \& Model Serving](#phase-2--deployment--model-serving)
-  - [Phase 3 — Enterprise Orchestration](#phase-3--enterprise-orchestration)
-  - [Phase 4 — Model Observability \& Monitoring](#phase-4--model-observability--monitoring)
-  - [Phase 5 — Foundational Models](#phase-5--foundational-models)
+  - [Phase 2 — Deployment \& Model Serving]
+  - [Phase 3 — Enterprise Orchestration]
+  - [Phase 4 — Model Observability \& Monitoring]
+  - [Phase 5 — Foundational Models]
 - [Repo Structure](#repo-structure)
 - [Tech Stack](#tech-stack)
 - [Recommended Reading](#recommended-reading)
