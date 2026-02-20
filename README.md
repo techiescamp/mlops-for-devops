@@ -18,8 +18,6 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
   - [Phase 3 — Enterprise Orchestration](#phase-3--enterprise-orchestration)
   - [Phase 4 — Model Observability \& Monitoring](#phase-4--model-observability--monitoring)
   - [Phase 5 — Foundational Models](#phase-5--foundational-models)
-- [Quick Start](#quick-start)
-- [DevOps to MLOps — The Mental Model](#devops-to-mlops--the-mental-model)
 - [Repo Structure](#repo-structure)
 - [Tech Stack](#tech-stack)
 - [Recommended Reading](#recommended-reading)
