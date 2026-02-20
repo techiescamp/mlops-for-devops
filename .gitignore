@@ -27,13 +27,22 @@ share/python-wheels/
 MANIFEST
 .Python
 
-# Virtual environments
+# Virtual environments (applies to ALL subdirectories automatically)
 .venv/
 venv/
 env/
 ENV/
 env.bak/
 venv.bak/
+.env_/
+virtualenv/
+.virtualenv/
+pyenv/
+.pyenv/
+mlops_env/
+ml_env/
+phase*/venv/
+phase*/.venv/
 
 # Installer logs
 pip-log.txt
