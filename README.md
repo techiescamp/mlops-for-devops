@@ -3,7 +3,7 @@
 A hands-on, project-based guide to Machine Learning Operations — built specifically for DevOps, Platform, and SRE engineers.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/techiescamp/mlops-for-devops?style=social)](https://github.com/techiescamp/mlops-for-devops)
+[![GitHub Stars](https://img.shields.io/github/stars/techiescamp/mlops-for-devops-engineers?style=social)](https://github.com/techiescamp/mlops-for-devops-engineers)
 
 > **No ML background required.** Every concept is explained through DevOps analogies you already understand.
 
@@ -99,3 +99,4 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 ## License
 
 MIT — see [LICENSE](LICENSE).
+git
