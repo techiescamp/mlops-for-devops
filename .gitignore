@@ -1,0 +1,199 @@
+# =============================================================================
+# MLOps for DevOps Engineers — .gitignore
+# Tech: Python, DVC, scikit-learn, XGBoost, FastAPI, Docker, Kubernetes,
+#       KServe, MLflow, Kubeflow, Prometheus, Grafana, Evidently AI,
+#       Helm, GitHub Actions, vLLM, TGI, Ollama
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+MANIFEST
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# pyenv
+.python-version
+
+# mypy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# -----------------------------------------------------------------------------
+# Data & Datasets (managed by DVC)
+# -----------------------------------------------------------------------------
+*.csv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.arrow
+*.json.gz
+data/raw/
+data/processed/
+data/interim/
+data/external/
+
+# DVC internals (keep .dvc files, ignore cache/tmp)
+.dvc/cache/
+.dvc/tmp/
+.dvc/plots/
+
+# -----------------------------------------------------------------------------
+# Trained Models & Artefacts
+# -----------------------------------------------------------------------------
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+*.h5
+models/
+checkpoints/
+saved_models/
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# -----------------------------------------------------------------------------
+# FastAPI
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+.dockerignore
+
+# -----------------------------------------------------------------------------
+# Kubernetes / Helm
+# -----------------------------------------------------------------------------
+*.kubeconfig
+kubeconfig
+helm/charts/*.tgz
+.helm/
+
+# -----------------------------------------------------------------------------
+# MinIO / Object Storage (used with MLflow)
+# -----------------------------------------------------------------------------
+minio-data/
+s3-data/
+
+# -----------------------------------------------------------------------------
+# Prometheus & Grafana
+# -----------------------------------------------------------------------------
+prometheus/data/
+grafana/data/
+grafana/logs/
+
+# -----------------------------------------------------------------------------
+# Evidently AI
+# -----------------------------------------------------------------------------
+evidently_reports/
+reports/
+
+# -----------------------------------------------------------------------------
+# Locust (Load Testing)
+# -----------------------------------------------------------------------------
+locust-results/
+*.locust.log
+
+# -----------------------------------------------------------------------------
+# LLM / vLLM / TGI / Ollama
+# -----------------------------------------------------------------------------
+ollama-models/
+tgi-models/
+vllm-cache/
+model-cache/
+hf_cache/
+.huggingface/
+~/.ollama/
+
+# -----------------------------------------------------------------------------
+# IDEs & Editors
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# Logs & Temp files
+# -----------------------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+logs/
+tmp/
+temp/
+
+# -----------------------------------------------------------------------------
+# Secrets & Credentials
+# -----------------------------------------------------------------------------
+*.pem
+*.key
+*.crt
+*.pfx
+secrets/
+credentials/
+service-account*.json
