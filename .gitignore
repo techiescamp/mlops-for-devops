@@ -80,7 +80,6 @@ dmypy.json
 # -----------------------------------------------------------------------------
 # Data & Datasets (managed by DVC)
 # -----------------------------------------------------------------------------
-*.csv
 *.parquet
 *.feather
 *.h5
@@ -113,6 +112,8 @@ data/external/
 models/
 checkpoints/
 saved_models/
+processed/
+artifacts/
 
 # MLflow
 mlruns/
