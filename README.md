@@ -39,18 +39,18 @@ effective at operating ML workloads in production.
 
 Here is what we build, end to end:
 
-**Traditional ML**
+**🤖 Traditional ML**
 - Train and evaluate a real employee attrition prediction model locally
 - Package and serve the model as an API on Kubernetes
 - Automate the full ML pipeline with Kubeflow and MLflow
 - Monitor model performance and detect drift in production
 
-**Foundational Models**
+**🧠 Foundational Models**
 - Serve large language models in production using vLLM, TGI, and Ollama
 - Handle LLM hosting challenges, scaling, token optimization, cost
 - Learn how enterprises solve these problems in real projects
 
-**LLM-Powered DevOps**
+**⚙️ LLM-Powered DevOps**
 - Monitor Kubernetes clusters using LLMs
 - Build internal chatbots, RAG pipelines, and agents
 - Everything runs on Kubernetes, Docker, and tools you already use.
@@ -111,6 +111,7 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 
 ## Recommended Reading
 - [Google MLOps Whitepaper](https://cloud.google.com/resources/mlops-whitepaper)
+- [Volkswagen’s End-to-End MLOps Platform on AWS](https://aws.amazon.com/blogs/industries/how-volkswagen-and-aws-built-end-end-mlops-for-digital-production-platform/)
 
 ## Contributing
 
