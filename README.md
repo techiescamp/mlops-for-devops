@@ -98,8 +98,7 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 | Step 2 | Data Preparation Stages (hands-on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
 | Step 3 | Training & Building the Prediction Model (hands on) | Coming Saturday |
 
-**Code:** [`phase-1-local-dev/`](phase-1-local-dev/) · **Guide:** [`phase-1-local-dev/README.md`](phase-1-local-dev/README.md)
-
+**Code:** [`phase-1-local-dev/`](phase-1-local-dev/)
 ## Tech Stack
 
 | Category | Tools |

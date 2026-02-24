@@ -26,6 +26,7 @@ share/python-wheels/
 .installed.cfg
 MANIFEST
 .Python
+.Python3
 
 # Virtual environments (applies to ALL subdirectories automatically)
 .venv/
