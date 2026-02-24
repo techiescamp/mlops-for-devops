@@ -50,27 +50,24 @@ One use case, end to end. This keeps the focus on infrastructure and operations,
 
 **No ML experience needed.** That is what this repo teaches.
 
-See [docs/prerequisites.md](docs/prerequisites.md) for setup instructions.
-
 ## Learning Path
 
 ```
 Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 ─────────        ─────────        ─────────        ─────────        ─────────
  Local Dev   ──▶  Deploy &   ──▶  Enterprise  ──▶  Monitor &  ──▶  Foundation
- & Pipelines      Model Serve      Orchestrate      Observe          Models
+ & Pipelines      Model Serve      Orchestration     Observe          Models
 ```
 
 ### Phase 1 — Local Development & Data Pipelines
 
 **Goal:** Build the ML foundation on your local machine.
 
-| Task | DevOps Analogy |
-|------|----------------|
-| Generate a 500K-row synthetic dataset | Data versioning with DVC (like Git LFS for data) |
-| Build a data pipeline (ingest → clean → feature engineering) | Reproducible build pipeline, idempotent steps |
-| Train a baseline model (Logistic Regression → XGBoost) | The "build" step — produces an artefact (model file) |
-| Evaluate the model and persist metrics | Test results in CI — but statistical, not deterministic |
+| Step | Task | Documentation |
+|------|-------|------------|
+| Step 1 | Project Dataset Pipeline Explained | [Read the Guide](https://newsletter.devopscube.com/p/building-a-dataset-pipeline) |
+| Step 2 | Data Preparation Stages (hands-on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
+| Step 3 | Training & Building the Prediction Model (hands on) | Coming Saturday |
 
 **Code:** [`phase-1-local-dev/`](phase-1-local-dev/) · **Guide:** [`phase-1-local-dev/README.md`](phase-1-local-dev/README.md)
 
