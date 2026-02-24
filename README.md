@@ -18,12 +18,11 @@ If you are planning to use this repo for reference, please hit the star. Thanks!
 - [Use Case](#use-case)
 - [Prerequisites](#prerequisites)
 - [Learning Path](#learning-path)
-  - [Phase 1 — Local Development \& Data Pipelines](#phase-1--local-development--data-pipelines)
-  - Phase 2 — Deployment \& Model Serving
-  - Phase 3 — Enterprise Orchestration
-  - Phase 4 — Model Observability \& Monitoring
-  - Phase 5 — Foundational Models
-- [Repo Structure](#repo-structure)
+  - [Phase 1: Local Development & Data Pipelines](#phase-1-local-development--data-pipelines)
+  - Phase 2 — Deployment & Model Serving *(coming soon)*
+  - Phase 3 — Enterprise Orchestration *(coming soon)*
+  - Phase 4 — Model Observability & Monitoring *(coming soon)*
+  - Phase 5 — Foundational Models *(coming soon)*
 - [Tech Stack](#tech-stack)
 - [Recommended Reading](#recommended-reading)
 - [Contributing](#contributing)
@@ -115,6 +114,12 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 - [Google MLOps Whitepaper](https://cloud.google.com/resources/mlops-whitepaper)
 - [Volkswagen’s End-to-End MLOps Platform on AWS](https://aws.amazon.com/blogs/industries/how-volkswagen-and-aws-built-end-end-mlops-for-digital-production-platform/)
 
+## Certifications
+
+1. [AWS Certified Machine Learning Engineer - Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)
+2. [Nvidia AI Infrastructure and Operations](https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate/)
+
+
 ## Contributing
 
 Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
@@ -122,4 +127,3 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 ## License
 
 MIT — see [LICENSE](LICENSE).
-git
