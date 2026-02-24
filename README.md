@@ -6,6 +6,8 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 [![GitHub Stars](https://img.shields.io/github/stars/techiescamp/mlops-for-devops?style=social)](https://github.com/techiescamp/mlops-for-devops)
 
 > **No ML background required.** Every concept is explained through DevOps analogies you already understand.
+> If you are completely new to the MLOPS concept, please read our [DevOps to MLOps](https://devopscube.com/devops-to-mlops/) guide first.
+
 
 ## Table of Contents
 
@@ -26,11 +28,35 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 
 ## What Is This?
 
-Most MLOps resources are written for data scientists learning infrastructure. This repo flips that — it is written for **infrastructure engineers learning ML operations**.
+Most MLOps resources are written for data scientists learning 
+infrastructure. This repo flips that. It is written for **DevOps 
+engineers learning ML operations**.
 
-You do not need to become a data scientist. But just like understanding how a Java application is built makes you a better DevOps engineer, understanding how an ML model is built, trained, and served makes you effective at operating ML workloads in production.
+You do not need to become a data scientist. But just like understanding 
+how a Java application is built makes you a better DevOps engineer, 
+understanding how an ML model is built, trained, and served makes you 
+effective at operating ML workloads in production.
 
-This repo follows the complete lifecycle of an ML project — from a local prototype to a production-grade, monitored, enterprise deployment — with working code at every step.
+Here is what we build, end to end:
+
+**Traditional ML**
+- Train and evaluate a real employee attrition prediction model locally
+- Package and serve the model as an API on Kubernetes
+- Automate the full ML pipeline with Kubeflow and MLflow
+- Monitor model performance and detect drift in production
+
+**Foundational Models**
+- Serve large language models in production using vLLM, TGI, and Ollama
+- Handle LLM hosting challenges, scaling, token optimization, cost
+- Learn how enterprises solve these problems in real projects
+
+**LLM-Powered DevOps**
+- Monitor Kubernetes clusters using LLMs
+- Build internal chatbots, RAG pipelines, and agents
+- Everything runs on Kubernetes, Docker, and tools you already use.
+
+AI is moving fast. As new tools and techniques emerge that are relevant 
+for DevOps, SRE, and Platform Engineering, we will cover them here. 
 
 ## Use Case
 
@@ -59,7 +85,7 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
  & Pipelines      Model Serve      Orchestration     Observe          Models
 ```
 
-### Phase 1 — Local Development & Data Pipelines
+### Phase 1: Local Development & Data Pipelines
 
 **Goal:** Build the ML foundation on your local machine.
 
@@ -84,7 +110,6 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 | LLM Serving (Phase 5) | vLLM, TGI, Ollama |
 
 ## Recommended Reading
-- [DevOps to MLOps — DevOpsCube](https://devopscube.com/devops-to-mlops/)
 - [Google MLOps Whitepaper](https://cloud.google.com/resources/mlops-whitepaper)
 
 ## Contributing
