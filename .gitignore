@@ -81,6 +81,7 @@ dmypy.json
 # Data & Datasets (managed by DVC)
 # -----------------------------------------------------------------------------
 *.csv
+!**/datasets/employee_attrition.csv
 *.parquet
 *.feather
 *.h5
@@ -91,6 +92,7 @@ data/raw/
 data/processed/
 data/interim/
 data/external/
+**/datasets/processed/
 
 # DVC internals (keep .dvc files, ignore cache/tmp)
 .dvc/cache/
