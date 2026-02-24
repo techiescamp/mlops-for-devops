@@ -8,6 +8,9 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 > **No ML background required.** Every concept is explained through DevOps analogies you already understand.
 > If you are completely new to the MLOPS concept, please read our [DevOps to MLOps](https://devopscube.com/devops-to-mlops/) guide first.
 
+## Hit the Star! :star:
+
+If you are planning to use this repo for reference, please hit the star. Thanks!
 
 ## Table of Contents
 
