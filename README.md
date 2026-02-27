@@ -2,7 +2,8 @@
 
 A hands-on, project-based guide to Machine Learning Operations — built specifically for DevOps, Platform, and SRE engineers.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Code: Apache 2.0](https://img.shields.io/badge/Code-Apache%202.0-blue.svg)](licenses/LICENSE-CODE)
+[![Content: All Rights Reserved](https://img.shields.io/badge/Content-All%20Rights%20Reserved-red.svg)](licenses/LICENSE-CONTENT)
 [![GitHub Stars](https://img.shields.io/github/stars/techiescamp/mlops-for-devops?style=social)](https://github.com/techiescamp/mlops-for-devops)
 
 > **No ML background required.** Every concept is explained through DevOps analogies you already understand.
@@ -126,4 +127,9 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This repository uses a dual license:
+
+- **Code** (Python scripts, configs, manifests) — [Apache 2.0](licenses/LICENSE-CODE). Free to use with attribution.
+- **Content** (README, guides, documentation) — [All Rights Reserved](licenses/LICENSE-CONTENT). No copying or redistribution permitted.
+
+For commercial licensing: contact@devopscube.com

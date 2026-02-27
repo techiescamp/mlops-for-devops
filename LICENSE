@@ -1,0 +1,29 @@
+Copyright (c) 2025 TechiesCamp / DevOpsCube (contact@devopscube.com)
+
+This repository uses a dual license:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CODE — Apache License 2.0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Applies to: all source code files (*.py, *.sh, *.yaml, *.yml, *.json,
+            Dockerfiles, Kubernetes manifests, Helm charts, etc.)
+
+You may freely use, modify, and distribute the code for any purpose
+(including commercial) provided you include the original copyright notice
+and attribution. See licenses/LICENSE-CODE for the full Apache 2.0 terms.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT — Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Applies to: all written content — README files, guides, walkthroughs,
+            documentation, diagrams, and explanatory text.
+
+You may share and adapt this content for non-commercial purposes provided
+you give appropriate credit to TechiesCamp / DevOpsCube and link back to:
+https://github.com/techiescamp/mlops-for-devops
+
+Commercial use of the content (e.g., selling courses, paid tutorials,
+or paid products derived from this material) is NOT permitted without
+prior written consent. See licenses/LICENSE-CONTENT for full CC BY-NC 4.0 terms.
+
+For commercial licensing enquiries: contact@devopscube.com
