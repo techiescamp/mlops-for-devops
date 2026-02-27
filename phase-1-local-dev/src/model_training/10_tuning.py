@@ -72,11 +72,8 @@ def tuning_data(X_train, y_train, X_test, y_test):
     with open(METRICS_PATH, 'w') as f:
         json.dump(metrics, f, indent=2)
 
-    # Patch for KServe sklearn 1.5.2 (multi_class removed in 1.6+)
     tuned_pipeline.named_steps['classifier'].multi_class = 'auto'
 
-    # Wrap so predict() returns probabilities for KServe
-    # Uses SimpleNamespace + bound method - no custom classes needed
     wrapped = types.SimpleNamespace(predict=tuned_pipeline.predict_proba)
     joblib.dump(wrapped, MODEL_PATH)
 
