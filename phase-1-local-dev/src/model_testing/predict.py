@@ -20,7 +20,7 @@ def test(input_data: dict):
     p_leave = probability[1]
 
     prediction = 1 if p_leave >= 0.50 else 0
-    print('prediciton value: ', prediction)
+    print('prediction value: ', prediction)
     print("😢 Leave" if prediction == 1 else "😃 Stay")
 
     if p_leave >= 0.65:
