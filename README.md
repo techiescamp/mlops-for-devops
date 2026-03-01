@@ -96,7 +96,7 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 |------|-------|------------|
 | Step 1 | Project Dataset Pipeline Explained | [Read the Guide](https://newsletter.devopscube.com/p/building-a-dataset-pipeline) |
 | Step 2 | Data Preparation Stages (hands-on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
-| Step 3 | Training & Building the Prediction Model (hands on) | Coming Saturday |
+| Step 3 | Training & Building the Prediction Model (hands on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-training-the-model) |
 
 **Code:** [`phase-1-local-dev/`](phase-1-local-dev/)
 ## Tech Stack
