@@ -1,33 +1,60 @@
 # MLOps for DevOps Engineers
 
-A hands-on, project-based guide to Machine Learning Operations — built specifically for DevOps, Platform, and SRE engineers.
+A hands-on, project-based guide to Machine Learning Operations built specifically for DevOps, Platform, and SRE engineers.
 
-[![Code: Apache 2.0](https://img.shields.io/badge/Code-Apache%202.0-blue.svg)](licenses/LICENSE-CODE)
-[![Content: All Rights Reserved](https://img.shields.io/badge/Content-All%20Rights%20Reserved-red.svg)](licenses/LICENSE-CONTENT)
-[![GitHub Stars](https://img.shields.io/github/stars/techiescamp/mlops-for-devops?style=social)](https://github.com/techiescamp/mlops-for-devops)
+> No ML background required. Every concept is explained through DevOps analogies you already understand.
 
-> **No ML background required.** Every concept is explained through DevOps analogies you already understand.
-> If you are completely new to the MLOPS concept, please read our [DevOps to MLOps](https://devopscube.com/devops-to-mlops/) guide first.
+If you are completely new to MLOps, read our [DevOps to MLOps guide](https://devopscube.com) first.
 
-## Hit the Star! :star:
-
-If you are planning to use this repo for reference, please hit the star. Thanks!
+---
 
 ## Table of Contents
 
-- [About This Repo](#about-this-repo)
-- [Project Use Case](#project-use-case)
+- [Who This Is For](#who-this-is-for)
+- [What We Build](#what-we-build)
 - [Prerequisites](#prerequisites)
 - [Learning Path](#learning-path)
-  - [Phase 1: Local Development & Data Pipelines](#phase-1-local-development--data-pipelines)
-  - Phase 2 — Deployment & Model Serving *(coming soon)*
-  - Phase 3 — Enterprise Orchestration *(coming soon)*
-  - Phase 4 — Model Observability & Monitoring *(coming soon)*
-  - Phase 5 — Foundational Models *(coming soon)*
+- [Phase 1: Local Dev & Pipelines](#phase-1-local-development--data-pipelines)
 - [Tech Stack](#tech-stack)
 - [Recommended Reading](#recommended-reading)
-- [Contributing](#contributing)
 - [License](#license)
+
+---
+
+## Who This Is For
+
+Most MLOps resources are written for data scientists learning infrastructure. This repo flips that.
+
+You do not need to become a data scientist. But just like understanding how a Java application is built makes you a better DevOps engineer, understanding how an ML model is built, trained, and served makes you effective at operating ML workloads in production.
+
+---
+
+## What We Build
+
+| Track | What You Learn |
+|-------|----------------|
+| 🤖 Traditional ML | Train, serve, automate, and monitor a real ML model on Kubernetes |
+| 🧠 Foundational Models | Serve LLMs in production using vLLM, TGI, and Ollama |
+| ⚙️ LLM-Powered DevOps | Monitor K8s clusters, build RAG pipelines and agents with LLMs |
+
+Everything runs on Kubernetes, Docker, and tools you already use.
+
+---
+
+## Prerequisites
+
+| Skill | Level |
+|-------|-------|
+| Linux CLI | Intermediate |
+| Docker | Intermediate |
+| Kubernetes | Intermediate |
+| AWS | Basic to Intermediate |
+| Python | Basic — read and run scripts |
+| Git | Intermediate |
+
+No ML experience needed. That is what this repo teaches.
+
+---
 
 ## Learning Path
 
@@ -42,100 +69,56 @@ If you are planning to use this repo for reference, please hit the star. Thanks!
 | 7 | ⚙️ LLM-Powered DevOps | LLM-Powered DevOps | 🔜 Planned |
 | 8 | ⚙️ LLM-Powered DevOps | Emerging AI Ops | 🔜 Planned |
 
+---
 
-## About This Repo
+## Phase 1: Local Development & Data Pipelines
 
-Most MLOps resources are written for data scientists learning 
-infrastructure. This repo flips that. It is written for **DevOps 
-engineers learning ML operations**.
+**Goal:** Build the full ML foundation on your local machine — from raw data to a trained, tested model.
 
-You do not need to become a data scientist. But just like understanding 
-how a Java application is built makes you a better DevOps engineer, 
-understanding how an ML model is built, trained, and served makes you 
-effective at operating ML workloads in production.
+**Use case throughout:** Employee attrition prediction for a large organisation (~500,000 employees). One problem, end to end. Keeps the focus on infrastructure and operations, not data science theory.
 
-Here is what we build, end to end:
+| Step | Title | Guide |
+|------|-------|-------|
+| 1 | Project Dataset Pipeline | [Read the Guide](#) |
+| 2 | Data Preparation Stages | [Read the Guide](#) |
+| 3 | Training & Building the Prediction Model | [Read the Guide](#) |
+| 4 | From Model to Live API with KServe | 🔜 Coming this Saturday |
 
-**🤖 Traditional ML**
-- Train and evaluate a real employee attrition prediction model locally
-- Package and serve the model as an API on Kubernetes
-- Automate the full ML pipeline with Kubeflow and MLflow
-- Monitor model performance and detect drift in production
+Code: `phase-1-local-dev/`
 
-**🧠 Foundational Models**
-- Serve large language models in production using vLLM, TGI, and Ollama
-- Handle LLM hosting challenges, scaling, token optimization, cost
-- Learn how enterprises solve these problems in real projects
+---
 
-**⚙️ LLM-Powered DevOps**
-- Monitor Kubernetes clusters using LLMs
-- Build internal chatbots, RAG pipelines, and agents
-- Everything runs on Kubernetes, Docker, and tools you already use.
-
-AI is moving fast. As new tools and techniques emerge that are relevant 
-for DevOps, SRE, and Platform Engineering, we will cover them here. 
-
-## Project Use Case
-
-Every phase uses the same real-world problem: **predicting employee attrition for a large organisation (~500,000 employees)**.
-
-One use case, end to end. This keeps the focus on infrastructure and operations, not data-science theory.
-
-## Prerequisites
-
-- Linux CLI (Intermediate): Can you write bash scripts using loops and pipes?
-- Docker (Intermediate): Can you write a multi-stage Dockerfile?
-- Kubernetes (Intermediate): Can you deploy an application using Deployments, Services, and Ingress?
-- AWS Cloud (Basic to Intermediate): Can you deploy EKS and work with core services like IAM, EC2, and S3?
-- Python (Basic): Can you read Python code and run scripts?
-- Git (Intermediate): Can you create branches, merge changes, and resolve conflicts?
-
-**No ML experience needed.** That is what this repo teaches.
-
-
-### Phase 1: Local Development & Data Pipelines
-
-**Goal:** Build the ML foundation on your local machine.
-
-| Step | Task | Documentation |
-|------|-------|------------|
-| Step 1 | Project Dataset Pipeline Explained | [Read the Guide](https://newsletter.devopscube.com/p/building-a-dataset-pipeline) |
-| Step 2 | Data Preparation Stages (hands-on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
-| Step 3 | Training & Building the Prediction Model (hands on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-training-the-model) |
-| Step 4 | From Model to Live API with KServe | Coming this Saturday |
-
-**Code:** [`phase-1-local-dev/`](phase-1-local-dev/)
 ## Tech Stack
 
 | Category | Tools |
 |----------|-------|
-| Data Pipeline | Python, Pandas, DVC |
+| Data Pipeline | Python, Pandas |
 | Model Training | scikit-learn, XGBoost |
 | API / Serving | FastAPI, Docker, KServe |
 | Orchestration | MLflow, Kubeflow Pipelines |
 | Monitoring | Prometheus, Grafana, Evidently AI |
 | Infrastructure | Kubernetes, Helm, GitHub Actions |
-| LLM Serving (Phase 5) | vLLM, TGI, Ollama |
+| LLM Serving | vLLM, TGI, Ollama |
+
+---
 
 ## Recommended Reading
+
 - [Google MLOps Whitepaper](https://cloud.google.com/resources/mlops-whitepaper)
-- [Volkswagen’s End-to-End MLOps Platform on AWS](https://aws.amazon.com/blogs/industries/how-volkswagen-and-aws-built-end-end-mlops-for-digital-production-platform/)
+- [Volkswagen's End-to-End MLOps Platform on AWS](https://aws.amazon.com/solutions/case-studies/volkswagen-mlops/)
 
 ## Certifications
 
-1. [AWS Certified Machine Learning Engineer - Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)
-2. [Nvidia AI Infrastructure and Operations](https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate/)
+- [AWS Certified Machine Learning Engineer - Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)
+- [Nvidia AI Infrastructure and Operations](https://www.nvidia.com/en-us/training/)
 
-
-## Contributing
-
-Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+---
 
 ## License
 
-This repository uses a dual license:
+Dual licensed:
 
-- **Code** (Python scripts, configs, manifests) — [Apache 2.0](licenses/LICENSE-CODE). Free to use with attribution.
-- **Content** (README, guides, documentation) — [All Rights Reserved](licenses/LICENSE-CONTENT). No copying or redistribution permitted.
+- **Code** (scripts, configs, manifests) — Apache 2.0
+- **Content** (README, guides, docs) — All Rights Reserved
 
 For commercial licensing: contact@devopscube.com
