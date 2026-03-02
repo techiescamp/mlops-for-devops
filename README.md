@@ -13,10 +13,19 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 
 If you are planning to use this repo for reference, please hit the star. Thanks!
 
+## Learning Path
+
+```
+Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
+─────────        ─────────        ─────────        ─────────        ─────────
+ Local Dev   ──▶  Deploy &   ──▶  Enterprise  ──▶  Monitor &  ──▶  Foundation
+ & Pipelines      Model Serve      Orchestration     Observe          Models
+```
+
 ## Table of Contents
 
-- [What Is This?](#what-is-this)
-- [Use Case](#use-case)
+- [About This Repo](#about-this-repo)
+- [Project Use Case](#project-use-case)
 - [Prerequisites](#prerequisites)
 - [Learning Path](#learning-path)
   - [Phase 1: Local Development & Data Pipelines](#phase-1-local-development--data-pipelines)
@@ -29,7 +38,7 @@ If you are planning to use this repo for reference, please hit the star. Thanks!
 - [Contributing](#contributing)
 - [License](#license)
 
-## What Is This?
+## About This Repo
 
 Most MLOps resources are written for data scientists learning 
 infrastructure. This repo flips that. It is written for **DevOps 
@@ -61,7 +70,7 @@ Here is what we build, end to end:
 AI is moving fast. As new tools and techniques emerge that are relevant 
 for DevOps, SRE, and Platform Engineering, we will cover them here. 
 
-## Use Case
+## Project Use Case
 
 Every phase uses the same real-world problem: **predicting employee attrition for a large organisation (~500,000 employees)**.
 
@@ -69,24 +78,15 @@ One use case, end to end. This keeps the focus on infrastructure and operations,
 
 ## Prerequisites
 
-| Skill | Level | Quick Check |
-|-------|-------|-------------|
-| Linux CLI | Intermediate | Can you write a bash script with loops and pipes? |
-| Docker | Intermediate | Can you write a multi-stage Dockerfile? |
-| Kubernetes | Intermediate | Can you deploy an app with Deployments, Services, and Ingress? |
-| Python | Basic | Can you read Python code and run scripts? |
-| Git | Intermediate | Can you branch, merge, and resolve conflicts? |
+- Linux CLI (Intermediate): Can you write bash scripts using loops and pipes?
+- Docker (Intermediate): Can you write a multi-stage Dockerfile?
+- Kubernetes (Intermediate): Can you deploy an application using Deployments, Services, and Ingress?
+- AWS Cloud (Basic to Intermediate): Can you deploy EKS and work with core services like IAM, EC2, and S3?
+- Python (Basic): Can you read Python code and run scripts?
+- Git (Intermediate): Can you create branches, merge changes, and resolve conflicts?
 
 **No ML experience needed.** That is what this repo teaches.
 
-## Learning Path
-
-```
-Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
-─────────        ─────────        ─────────        ─────────        ─────────
- Local Dev   ──▶  Deploy &   ──▶  Enterprise  ──▶  Monitor &  ──▶  Foundation
- & Pipelines      Model Serve      Orchestration     Observe          Models
-```
 
 ### Phase 1: Local Development & Data Pipelines
 
