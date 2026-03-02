@@ -13,15 +13,6 @@ A hands-on, project-based guide to Machine Learning Operations — built specifi
 
 If you are planning to use this repo for reference, please hit the star. Thanks!
 
-## Learning Path
-
-```
-Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
-─────────        ─────────        ─────────        ─────────        ─────────
- Local Dev   ──▶  Deploy &   ──▶  Enterprise  ──▶  Monitor &  ──▶  Foundation
- & Pipelines      Model Serve      Orchestration     Observe          Models
-```
-
 ## Table of Contents
 
 - [About This Repo](#about-this-repo)
@@ -37,6 +28,20 @@ Phase 1          Phase 2          Phase 3          Phase 4          Phase 5
 - [Recommended Reading](#recommended-reading)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Learning Path
+
+| Phase | Track | Title | Status |
+|-------|-------|-------|--------|
+| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Ongoing |
+| 2 | 🤖 Traditional ML | Deploy & Model Serve | 🔜 Upcoming |
+| 3 | 🤖 Traditional ML | Enterprise Orchestration | 🔜 Planned |
+| 4 | 🤖 Traditional ML | Monitor & Observe | 🔜 Planned |
+| 5 | 🧠 Foundational Models | Foundational Models | 🔜 Planned |
+| 6 | 🧠 Foundational Models | LLM Serving & Scaling | 🔜 Planned |
+| 7 | ⚙️ LLM-Powered DevOps | LLM-Powered DevOps | 🔜 Planned |
+| 8 | ⚙️ LLM-Powered DevOps | Emerging AI Ops | 🔜 Planned |
+
 
 ## About This Repo
 
