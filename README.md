@@ -97,6 +97,7 @@ One use case, end to end. This keeps the focus on infrastructure and operations,
 | Step 1 | Project Dataset Pipeline Explained | [Read the Guide](https://newsletter.devopscube.com/p/building-a-dataset-pipeline) |
 | Step 2 | Data Preparation Stages (hands-on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
 | Step 3 | Training & Building the Prediction Model (hands on) | [Read the Guide](https://newsletter.devopscube.com/p/mlops-training-the-model) |
+| Step 4 | From Model to Live API with KServe | Coming this Saturday |
 
 **Code:** [`phase-1-local-dev/`](phase-1-local-dev/)
 ## Tech Stack
