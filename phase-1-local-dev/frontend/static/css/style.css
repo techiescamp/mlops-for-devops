@@ -1,0 +1,102 @@
+/* h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(12, 128, 31) !important;
+}
+
+table, tr, th {
+    padding: 10px;
+}
+
+#result {
+    display: none;
+} */
+
+/* Page background */
+body {
+    background: #f8f9fa;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Main container */
+.container {
+    max-width: 850px;
+    margin-top: 40px;
+}
+
+/* Card-like form wrapper */
+#prediction-form {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h1 {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+label.form-label,
+label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Small helper text */
+small {
+    font-size: 0.78rem;
+    color: #6c757d;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+/* Inputs */
+input.form-control,
+select.form-select,
+select,
+input {
+    border-radius: 8px !important;
+    padding: 10px 12px !important;
+    border: 1px solid #ced4da;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Input focus */
+input:focus,
+select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+/* Submit button */
+button.btn-primary {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Result box */
+#result {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    margin-top: 25px;
+}
+
+/* Prediction text */
+#result h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#result p {
+    font-size: 1rem;
+    margin: 4px 0;
+}

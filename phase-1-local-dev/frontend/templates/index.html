@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Attrition Prediction</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"
+        defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employee Attrition Prediction</h1>
+        <form id="prediction-form">
+            <!-- Years & Tenure -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <small class="form-text">Years worked in current role.</small><br/>
+                    <label class="form-label">Years at Company</label>
+                    <input type="number" class="form-control" id="yearsAtCompany" name="Years at Company" min="0"
+                        step="1" required />
+                </div>
+
+                <div class="col-md-6">
+                    <small class="form-text">Total years worked in the company.</small><br/>
+                    <label class="form-label">Company Tenure</label>
+                    <input type="number" class="form-control" id="companyTenure" name="Company Tenure" min="0"
+                        step="0.1" required />
+                </div>
+            </div>
+
+            <!-- Promotions & Dependents -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Number of Promotions</label>
+                    <input type="number" class="form-control" name="Number of Promotions" min="0" step="1" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Number of Dependents</label>
+                    <input type="number" class="form-control" name="Number of Dependents" min="0" step="1" required />
+                </div>
+            </div>
+
+            <!-- Work Mode -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Overtime</label>
+                    <select class="form-select" name="Overtime" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Remote Work</label>
+                    <select class="form-select" name="Remote Work" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Performance & Education -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Performance Rating</label>
+                    <select class="form-select" name="Performance Rating" required>
+                        <option value="1">Low</option>
+                        <option value="2">Below Average</option>
+                        <option value="3">Average</option>
+                        <option value="4">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Education Level</label>
+                    <select class="form-select" name="Education Level" required>
+                        <option value="1">High School</option>
+                        <option value="2">Bachelor’s</option>
+                        <option value="3">Master’s</option>
+                        <option value="4">Associate</option>
+                        <option value="5">PhD</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Job & Company -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Job Level</label>
+                    <select class="form-select" name="Job Level" required>
+                        <option value="1">Entry</option>
+                        <option value="2">Mid</option>
+                        <option value="3">Senior</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Company Size</label>
+                    <select class="form-select" name="Company Size" required>
+                        <option value="1">Small</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Large</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Company Reputation</label>
+                    <select class="form-select" name="Company Reputation" required>
+                        <option value="1">Poor</option>
+                        <option value="2">Fair</option>
+                        <option value="3">Good</option>
+                        <option value="4">Excellent</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Satisfaction & Opportunities -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <small class="form-text">1: Low | 2: Medium | 3: High | 4: Very High</small><br/>
+                    <label class="form-label">Overall Satisfaction (1–4)</label>
+                    <input type="number" class="form-control" name="OverallSatisfaction" min="1" max="4" required />
+                </div>
+
+                <div class="col-md-6">
+                    <small class="form-text">0: Low | 1: Medium | 2: High</small><br/>
+                    <label class="form-label">Opportunities (0–2)</label>
+                    <input type="number" class="form-control" name="Opportunities" min="0" max="2" required />
+                </div>
+            </div>
+
+            <!-- Income & Age -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <small class="form-text">0: Under 2.4L | 1: 2.4L–4.2L | 2: 4.2L–6L | 3: 6L–20L | 4: Above 20L</small><br/>
+                    <label class="form-label">Annual Income Bin (0–4)</label>
+                    <input type="number" class="form-control" name="AnnualIncome" min="0" max="4" required />
+                </div>
+
+                <div class="col-md-6">
+                    <small class="form-text">1: 18–25 | 2: 25–35 | 3: 35–45 | 4: 45–60 | 5: 60–65</small><br/>
+                    <label class="form-label">Age Group (1–5)</label>
+                    <input type="number" class="form-control" name="AgeGroup" min="1" max="5" required />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mx-auto">
+                Predict Attrition
+            </button>
+        </form>
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
