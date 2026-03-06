@@ -102,7 +102,6 @@ data/external/
 # -----------------------------------------------------------------------------
 # Trained Models & Artefacts
 # -----------------------------------------------------------------------------
-*.pkl
 *.pickle
 *.joblib
 *.onnx
@@ -116,7 +115,7 @@ models/
 checkpoints/
 saved_models/
 processed/
-artifacts/
+phase-1-local-dev/artifacts/
 
 # MLflow
 mlruns/
