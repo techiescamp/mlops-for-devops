@@ -61,7 +61,7 @@ No ML experience needed. That is what this repo teaches.
 | Phase | Track | Title | Status |
 |-------|-------|-------|--------|
 | 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Done |
-| 1 | 🤖 Traditional ML | Deploy & Model Serve | 🔜 Upcoming |
+| 1 | 🤖 Traditional ML | K8s Deploy & Model Serving | ✅ Done |
 | 3 | 🤖 Traditional ML | Enterprise Orchestration | 🔜 Planned |
 | 4 | 🤖 Traditional ML | Monitor & Observe | 🔜 Planned |
 | 5 | 🧠 Foundational Models | Foundational Models | 🔜 Planned |
