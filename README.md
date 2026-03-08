@@ -60,8 +60,8 @@ No ML experience needed. That is what this repo teaches.
 
 | Phase | Track | Title | Status |
 |-------|-------|-------|--------|
-| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Ongoing |
-| 2 | 🤖 Traditional ML | Deploy & Model Serve | 🔜 Upcoming |
+| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Done |
+| 1 | 🤖 Traditional ML | Deploy & Model Serve | 🔜 Upcoming |
 | 3 | 🤖 Traditional ML | Enterprise Orchestration | 🔜 Planned |
 | 4 | 🤖 Traditional ML | Monitor & Observe | 🔜 Planned |
 | 5 | 🧠 Foundational Models | Foundational Models | 🔜 Planned |
@@ -82,10 +82,15 @@ No ML experience needed. That is what this repo teaches.
 | 1 | Project Dataset Pipeline | [Read the Guide](https://newsletter.devopscube.com/p/building-a-dataset-pipeline) |
 | 2 | Data Preparation Stages | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-preparation) |
 | 3 | Training & Building the Prediction Model | [Read the Guide](https://newsletter.devopscube.com/p/mlops-training-the-model) |
-| 4 | From Model to Live API with KServe | 🔜 Coming this Saturday |
+| 4 | From Model to Live API with KServe | [Read the Guide](https://newsletter.devopscube.com/p/deploying-model-kserve) |
 
 Code: `phase-1-local-dev/`
 
+## Phase 2: Enterprise Orchestration for ML
+
+**Goal:** Build the full ML pipeline using CNCF ML tooling
+
+🔜 Coming this Saturday
 ---
 
 ## Tech Stack
