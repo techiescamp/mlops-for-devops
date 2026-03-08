@@ -119,6 +119,9 @@ Code: `phase-1-local-dev/`
 - [Nvidia AI Infrastructure and Operations](https://www.nvidia.com/en-us/training/)
 
 ---
+## Tools
+
+- [Ray](https://github.com/ray-project/ray): Open-source distributed computing framework For Python & AI Workloads
 
 ## License
 
