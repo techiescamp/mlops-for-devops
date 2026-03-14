@@ -98,6 +98,7 @@ data/external/
 .dvc/cache/
 .dvc/tmp/
 .dvc/plots/
+dvc-env 
 
 # -----------------------------------------------------------------------------
 # Trained Models & Artefacts

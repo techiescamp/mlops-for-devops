@@ -1,0 +1,5 @@
+[core]
+    remote = ml-dataset
+['remote "ml-dataset"']
+    url = s3://devopscube-data-dvc-store
+    region = us-west-2
