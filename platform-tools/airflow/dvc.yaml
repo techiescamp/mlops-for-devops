@@ -1,0 +1,18 @@
+stages:
+  ingest:
+    cmd: python -m data_preparation.01_ingestion
+    wdir: src
+    deps:
+      - ../datasets/employee_attrition.csv
+      - data_preparation/01_ingestion.py
+    outs:
+      - ../datasets/processed/raw_ingested.csv
+
+  validate:
+    cmd: python -m data_preparation.02_validation
+    wdir: src
+    deps:
+      - ../datasets/processed/raw_ingested.csv
+      - data_preparation/02_validation.py
+    outs:
+      - ../datasets/processed/validated.csv

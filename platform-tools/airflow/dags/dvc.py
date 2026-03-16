@@ -75,7 +75,7 @@ def s3_to_dvc(**context):
 
 
 with DAG(
-    dag_id="s3_to_dvc_pipeline",
+    dag_id="dvc_pipeline",
     start_date=datetime.datetime(2026, 1, 1),
     schedule="@daily",
     catchup=False,

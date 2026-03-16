@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  ingest:
+    cmd: python -m data_preparation.01_ingestion
+    deps:
+    - path: ../datasets/employee_attrition.csv
+      hash: md5
+      md5: 8f28b4894c8d5aac17cc23e68127a768
+      size: 9982396
+    - path: data_preparation/01_ingestion.py
+      hash: md5
+      md5: 80356bdd8fb2f07ca54e61c4da69ca19
+      size: 433
+    outs:
+    - path: ../datasets/processed/raw_ingested.csv
+      hash: md5
+      md5: 8f28b4894c8d5aac17cc23e68127a768
+      size: 9982396
+  validate:
+    cmd: python -m data_preparation.02_validation
+    deps:
+    - path: ../datasets/processed/raw_ingested.csv
+      hash: md5
+      md5: 8f28b4894c8d5aac17cc23e68127a768
+      size: 9982396
+    - path: data_preparation/02_validation.py
+      hash: md5
+      md5: 4a29a48c36c64fd174bb29f549537ce6
+      size: 2339
+    outs:
+    - path: ../datasets/processed/validated.csv
+      hash: md5
+      md5: 8f28b4894c8d5aac17cc23e68127a768
+      size: 9982396
