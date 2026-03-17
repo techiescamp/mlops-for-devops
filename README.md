@@ -91,14 +91,10 @@ Code: `phase-1-local-dev/`
 
 **Goal:** Replace local, manual ML workflows with production-grade orchestration. Versioned data, automated pipelines, experiment tracking, and scalable training.
 
-|Step | | Title | What it Covers | Guide |
-|1|------|-------|-------|
-|2| ML Versioning Fundamentals | Understanding Data Drift, Model Decay, and Dataset Versioning  | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-drift-model-decay-and-dataset-versioning) |
-|3| Hands-On DVC with Airflow & S3 | DVC pipelines, pushing/pulling datasets from S3, connecting to Phase 1 attrition data | 🔜 Coming this Saturday |
-
-
-
-🔜 Coming this Saturday
+| Step | Title | What it Covers | Guide |
+|------|-------|----------------|-------|
+| 1 | ML Versioning Fundamentals | Understanding Data Drift, Model Decay, and Dataset Versioning | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-drift-model-decay-and-dataset-versioning) |
+| 2 | Hands-On DVC with Airflow & S3 | DVC pipelines, pushing/pulling datasets from S3, connecting to Phase 1 attrition data | 🔜 Coming Soon |
 
 ---
 
