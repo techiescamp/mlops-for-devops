@@ -50,7 +50,7 @@ Everything runs on Kubernetes, Docker, and tools you already use.
 | Docker | Intermediate |
 | Kubernetes | Intermediate |
 | AWS | Basic to Intermediate |
-| Python | Basic — read and run scripts |
+| Python | Basic- read and run scripts |
 | Git | Intermediate |
 
 No ML experience needed. That is what this repo teaches.
