@@ -105,8 +105,8 @@ Code: `phase-1-local-dev/`
 |----------|-------|
 | Data Pipeline | Python, Pandas |
 | Model Training | scikit-learn, XGBoost |
-| API / Serving | FastAPI, Docker, KServe |
-| Orchestration | MLflow, Kubeflow Pipelines |
+| API / Serving | FastAPI, Flask, Docker, KServe |
+| Orchestration | Airflow, Kubeflow, MLflow Pipelines |
 | Monitoring | Prometheus, Grafana, Evidently AI |
 | Infrastructure | Kubernetes, Helm, GitHub Actions |
 | LLM Serving | vLLM, TGI, Ollama |
