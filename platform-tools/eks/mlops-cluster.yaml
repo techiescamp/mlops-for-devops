@@ -1,0 +1,36 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: mlops-spot-cluster
+  region: us-west-2
+
+vpc:
+  id: "vpc-04983f870946edf57"
+  cidr: "192.168.0.0/16"
+  subnets:
+    public:
+      us-west-2a: { id: subnet-0256a9a7c7c993f84 }
+      us-west-2b: { id: subnet-037338d384a3fe219 }
+      us-west-2c: { id: subnet-0424635e6f158ac30 }
+
+managedNodeGroups:
+  - name: mlops-ng
+    instanceType: t3.medium
+    labels: { role: builders }
+    minSize: 2
+    maxSize: 4
+    ssh: 
+      allow: true
+      publicKeyName: techiescamp
+    tags:
+      Name: mlops-ng
+
+addons:
+  - name: aws-ebs-csi-driver
+    version: latest
+  - name: eks-pod-identity-agent
+    version: latest
+
+addonsConfig:    
+  autoApplyPodIdentityAssociations: true

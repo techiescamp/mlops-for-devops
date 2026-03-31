@@ -1,0 +1,24 @@
+executor: KubernetesExecutor
+
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/techiescamp/mlops-for-devops-dev.git
+    branch: main
+    subPath: "phase-2-enterprise-setup/airflow/dags"
+    period: 60s
+    credentialsSecret: git-credentials
+
+workers:
+  serviceAccount:
+    create: false
+    name: airflow-dvc-sa
+
+postgresql:
+  primary:
+    persistence:
+      storageClass: gp2
+
+triggerer:
+  persistence:
+    storageClassName: gp2
