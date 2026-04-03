@@ -127,10 +127,11 @@ Code: `phase-2-enterprise-setup/`
 - [Nvidia AI Infrastructure and Operations](https://www.nvidia.com/en-us/training/)
 
 ---
-## Tools
+## MLOps Tools
 
 - [Ray](https://github.com/ray-project/ray): Open-source distributed computing framework For Python & AI Workloads
 - [rtk](https://github.com/rtk-ai/rtk): High-performance CLI proxy that reduces LLM token consumption.
+- [CML](https://github.com/iterative/cml): CI/CD for Machine Learning Projects
 
 ## License
 
