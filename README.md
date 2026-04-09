@@ -57,21 +57,6 @@ No ML experience needed. That is what this repo teaches.
 
 ---
 
-## Learning Path
-
-| Phase | Track | Title | Status |
-|-------|-------|-------|--------|
-| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Done |
-| 1 | 🤖 Traditional ML | K8s Deploy & Model Serving | ✅ Done |
-| 3 | 🤖 Traditional ML | Enterprise Orchestration | 🔄 In Progress |
-| 4 | 🤖 Traditional ML | Monitor & Observe | 🔜 Planned |
-| 5 | 🧠 Foundational Models | Foundational Models | 🔜 Planned |
-| 6 | 🧠 Foundational Models | LLM Serving & Scaling | 🔜 Planned |
-| 7 | ⚙️ LLM-Powered DevOps | LLM-Powered DevOps | 🔜 Planned |
-| 8 | ⚙️ LLM-Powered DevOps | Emerging AI Ops | 🔜 Planned |
-
----
-
 ## Phase 1: Local Development & Data Pipelines
 
 **Goal:** Build the full ML foundation on your local machine — from raw data to a trained, tested model.
@@ -91,28 +76,44 @@ Code: `phase-1-local-dev/`
 
 **Goal:** Replace local, manual ML workflows with production-grade orchestration. Versioned data, automated pipelines, experiment tracking, and scalable training.
 
-| Step | Title | What it Covers | Guide |
-|------|-------|----------------|-------|
-| 1 | Data Versioning Fundamentals | Understanding Data Drift, Model Decay, and Dataset Versioning | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-drift-model-decay-and-dataset-versioning) |
-| 2 | Hands-On Data Version Control with AWS S3 | Working with DVC and AWS s3 to Version the Dataset required for ML | [Read the Guide](https://newsletter.devopscube.com/p/mlops-versioning-data-with-dvc)|
-| 3 | Data Versioning using Airflow on Kubernetes.  | ETL pipeline that produces fresh employee_attrition.csv dataset and versions in on s3 using DVC| [Read The Guide](https://newsletter.devopscube.com/p/mlops-airflow-dvc-pipeline)|
-| 4 | A Detailed Look in to Feature Store | Understand Feature Store in-depth  | 🔜 Coming Next |
+| Step | Title | Guide |
+|------|-------|-------|
+| 1 | Data Versioning Fundamentals  | [Read the Guide](https://newsletter.devopscube.com/p/mlops-data-drift-model-decay-and-dataset-versioning) |
+| 2 | Hands-On Data Version Control with AWS S3 | [Read the Guide](https://newsletter.devopscube.com/p/mlops-versioning-data-with-dvc)|
+| 3 | Data Versioning using Airflow on Kubernetes | [Read The Guide](https://newsletter.devopscube.com/p/mlops-airflow-dvc-pipeline)|
+| 4 | A Detailed Look in to Feature Store | 🔜 Coming Next |
 
 Code: `phase-2-enterprise-setup/`
 
 ---
 
+## Learning Path
+
+| Phase | Track | Title | Status |
+|-------|-------|-------|--------|
+| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Done |
+| 1 | 🤖 Traditional ML | K8s Deploy & Model Serving | ✅ Done |
+| 3 | 🤖 Traditional ML | Enterprise Orchestration | 🔄 In Progress |
+| 4 | 🤖 Traditional ML | Monitor & Observe | 🔜 Planned |
+| 5 | 🧠 Foundational Models | Foundational Models | 🔜 Planned |
+| 6 | 🧠 Foundational Models | LLM Serving & Scaling | 🔜 Planned |
+| 7 | ⚙️ LLM-Powered DevOps | LLM-Powered DevOps | 🔜 Planned |
+| 8 | ⚙️ LLM-Powered DevOps | Emerging AI Ops | 🔜 Planned |
+
+---
+
 ## Tech Stack
+
+Here is the tech stack you will be using in this setup.
 
 | Category | Tools |
 |----------|-------|
-| Data Pipeline | Python, Pandas |
+| Data Pipeline | Python, Airflow |
 | Model Training | scikit-learn, XGBoost |
 | API / Serving | FastAPI, Flask, Docker, KServe |
-| Orchestration | Airflow, Kubeflow, MLflow Pipelines |
+| ML Orchestration | Kubeflow, MLflow Pipelines |
 | Monitoring | Prometheus, Grafana, Evidently AI |
 | Infrastructure | Kubernetes, Helm, GitHub Actions |
-| LLM Serving | vLLM, TGI, Ollama |
 
 ---
 
