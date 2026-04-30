@@ -1,0 +1,12 @@
+project: employee_attrition
+provider: local
+registry:
+  registry_type: sql
+  path: postgresql+psycopg://feast:feast@<NODE-IP-HERE>:30432/feast
+  cache_ttl_seconds: 60
+online_store:
+  type: redis
+  connection_string: <NODE-IP-HERE>:30379,password=redispassword,db=0
+offline_store:
+  type: file
+entity_key_serialization_version: 3

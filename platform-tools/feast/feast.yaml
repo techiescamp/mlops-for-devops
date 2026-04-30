@@ -1,0 +1,57 @@
+# featurestore.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: feast-data-stores
+  namespace: feast
+stringData:
+  redis: |
+    connection_string: redis.feast.svc.cluster.local:6379,password=redispassword,db=0
+  sql: |
+    path: postgresql+psycopg://feast:feast@postgres.feast.svc.cluster.local:5432/feast
+    cache_ttl_seconds: 60
+---
+apiVersion: feast.dev/v1
+kind: FeatureStore
+metadata:
+  name: feast
+  namespace: feast
+spec:
+  feastProject: employee_attrition
+  services:
+    offlineStore:
+      persistence:
+        file:
+          type: file
+    onlineStore:
+      persistence:
+        store:
+          type: redis
+          secretRef:
+            name: feast-data-stores
+      server:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+    registry:
+      local:
+        persistence:
+          store:
+            type: sql
+            secretRef:
+              name: feast-data-stores
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feast-online-nodeport
+  namespace: feast
+spec:
+  type: NodePort
+  selector:
+    feast.dev/name: feast
+  ports:
+    - port: 6566
+      targetPort: 6566
+      nodePort: 30566
