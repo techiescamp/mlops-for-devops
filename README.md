@@ -46,12 +46,9 @@ Everything runs on Kubernetes, Docker, and tools you already use.
 
 | Skill | Level |
 |-------|-------|
-| Linux CLI | Intermediate |
-| Docker | Intermediate |
 | Kubernetes | Intermediate |
-| AWS | Basic to Intermediate |
-| Python | Basic- read and run scripts |
-| Git | Intermediate |
+| AWS EKS | Working knowledge |
+| Python | Basic (read and run scripts) |
 
 No ML experience needed. That is what this repo teaches.
 
