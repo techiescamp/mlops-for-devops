@@ -80,7 +80,9 @@ Code: `phase-1-local-dev/`
 | 3 | Data Versioning using Airflow on Kubernetes | [Read The Guide](https://newsletter.devopscube.com/p/mlops-airflow-dvc-pipeline)|
 | 4 | Feature Store Fundamentals Explained | [Read The Guide](https://newsletter.devopscube.com/p/mlops-feature-store) |
 | 5 | Hands-on Feature Store with Feast on Kubernetes | [Read The Guide](https://devopscube.com/setup-feature-store-feast-on-kubernetes/) |
-| 4 | Kubeflow Explained for MLOps | 🔜 Coming Next |
+| 6 | Kubeflow Explained for MLOps | 🔜 Coming Next |
+| 7 | Hands-on Kubeflow on Kubernetes | 🔜 Planned |
+| 8 | MLflow Explained for MLOps | 🔜 Planned |
 
 Code: `phase-2-enterprise-setup/`
 
