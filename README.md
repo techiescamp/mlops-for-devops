@@ -79,7 +79,7 @@ Code: `phase-1-local-dev/`
 | 2 | Data Version Control (DVC) with AWS S3 | [Read the Guide](https://newsletter.devopscube.com/p/mlops-versioning-data-with-dvc)|
 | 3 | Data Versioning using Airflow on Kubernetes | [Read The Guide](https://newsletter.devopscube.com/p/mlops-airflow-dvc-pipeline)|
 | 4 | Feature Store Fundamentals Explained | [Read The Guide](https://newsletter.devopscube.com/p/mlops-feature-store) |
-| 4 | Hands-on Feature Store with Feast on Kubernetes | [Read The Guide](https://devopscube.com/setup-feature-store-feast-on-kubernetes/) |
+| 5 | Hands-on Feature Store with Feast on Kubernetes | [Read The Guide](https://devopscube.com/setup-feature-store-feast-on-kubernetes/) |
 | 4 | Kubeflow Explained for MLOps | 🔜 Coming Next |
 
 Code: `phase-2-enterprise-setup/`
