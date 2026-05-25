@@ -1,0 +1,35 @@
+# Core FastAPI and web framework
+fastapi
+uvicorn
+pydantic
+
+# AWS Services
+boto3
+botocore
+
+# Environment and configuration
+python-dotenv
+
+# Data processing and ML
+numpy>=1.26
+scikit-learn
+
+# HTTP requests
+requests
+
+# Optional: LangChain components (if needed for compatibility)
+langchain
+langchain-core
+langchain-community
+
+# Text processing (optional)
+tiktoken
+markdown
+
+
+
+
+
+
+
+
