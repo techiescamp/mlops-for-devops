@@ -1,0 +1,24 @@
+# Web framework
+fastapi
+uvicorn
+pydantic
+
+# AWS
+boto3
+botocore
+
+# Environment
+python-dotenv
+
+# Data processing
+numpy>=1.26
+
+# LangChain
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-classic
+
+# HTTP
+requests

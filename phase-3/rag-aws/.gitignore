@@ -1,0 +1,26 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+myvenv/
+
+# Generated at runtime by indexing pipeline
+indexing_pipeline/temp-docs/
+indexing_pipeline/k8_docs/
+indexing_pipeline/hash_files.json
+indexing_pipeline/token_log.json
+
+# Generated at runtime by query pipeline
+query_pipeline/query_log.json
+
+# Node
+frontend/node_modules/
+frontend/build/
+
+# OS
+.DS_Store
