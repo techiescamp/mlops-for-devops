@@ -1,0 +1,35 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Hash tracking file
+hash_files.json
+
+# Virtual environments
+myvenv/
+venv/
+.venv/
+env/
+
+# Kubernetes docs (cloned repo)
+indexing_pipeline/k8_docs/
+
+# Temp docs
+indexing_pipeline/temp-docs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# OS files
+.DS_Store
