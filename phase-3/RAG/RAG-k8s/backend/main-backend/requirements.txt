@@ -1,0 +1,20 @@
+# Core FastAPI and web framework
+fastapi
+uvicorn
+pydantic
+
+# AWS Services
+boto3
+botocore
+
+# Environment and configuration
+python-dotenv
+
+# HTTP requests
+requests
+
+# LangChain
+langchain
+langchain-classic
+langchain-core
+langchain-community

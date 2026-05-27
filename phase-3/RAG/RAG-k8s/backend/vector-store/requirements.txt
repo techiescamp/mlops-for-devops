@@ -1,0 +1,14 @@
+# Core FastAPI and web framework
+fastapi
+uvicorn
+pydantic
+
+# AWS Services
+boto3
+botocore
+
+# Environment and configuration
+python-dotenv
+
+# Data processing
+numpy>=1.26

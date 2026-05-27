@@ -1,0 +1,15 @@
+# AWS Services
+boto3
+botocore
+
+# Environment and configuration
+python-dotenv
+
+# HTTP requests
+requests
+
+# LangChain
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters

@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rag-{{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: "{{ .Values.spec.schedule }}"
+  timeZone: {{ .Values.spec.timeZone }}
+  concurrencyPolicy: {{ .Values.spec.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.spec.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.spec.failedJobsHistoryLimit }}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: sync-backend
+        spec:
+          restartPolicy: {{ .Values.spec.restartPolicy }}
+          containers:
+            - name: sync-backend
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}
+              envFrom:
+                - configMapRef:
+                    name: rag-{{ .Release.Name }}-configmap
+              env:
+                - name: AZURE_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: rag-{{ .Release.Name }}-secret
+                      key: AZURE_API_KEY

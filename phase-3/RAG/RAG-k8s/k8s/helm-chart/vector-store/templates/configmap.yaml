@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: rag-{{ .Release.Name }}-configmap
+    namespace: {{ .Release.Namespace }}
+data:
+    AZURE_ENDPOINT: {{ .Values.config.azureOpenAIEndpoint }}
+    AZURE_EMBEDDING_DEPLOYMENT: {{ .Values.config.azureEmbeddingModel }}
+    AZURE_EMBEDDING_VERSION: {{ .Values.config.azureEmbeddingModelVersion }}
+    HOST: "0.0.0.0"
+    PORT: "8001"

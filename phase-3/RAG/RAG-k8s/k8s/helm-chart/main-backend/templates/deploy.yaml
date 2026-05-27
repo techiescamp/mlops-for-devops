@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-{{ .Release.Name }}-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: rag-main-backend
+  template:
+    metadata:
+      labels:
+        app: rag-main-backend
+    spec:
+      containers:
+        - name: main-backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          envFrom:
+            - configMapRef:
+                name: rag-{{ .Release.Name }}-configmap
+          env:
+            - name: AZURE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: rag-{{ .Release.Name }}-secret
+                  key: AZURE_API_KEY

@@ -1,0 +1,38 @@
+replicaCount: 1
+
+image:
+  repository: techiescamp/rag-frontend
+  tag: 2.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30500
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+backend_url: "http://rag-main-backend-service.rag-backend.svc.cluster.local:8000"
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 3000
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 3000
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+networkPolicy:
+  enabled: true

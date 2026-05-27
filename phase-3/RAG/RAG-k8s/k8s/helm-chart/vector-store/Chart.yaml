@@ -1,0 +1,5 @@
+apiVersion: v2
+name: rag-vector-store
+description: A Helm chart for RAG Vector Store
+version: 0.1.0
+appVersion: "1.0.0"

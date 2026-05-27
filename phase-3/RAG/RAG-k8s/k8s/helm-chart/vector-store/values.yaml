@@ -1,0 +1,49 @@
+replicaCount: 1
+
+image:
+  repository: techiescamp/rag-vector-store
+  tag: 4.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8001
+
+config:
+  azureOpenAIEndpoint: <open-ai-endpoint>
+  azureEmbeddingModel: text-embedding-3-small
+  azureEmbeddingModelVersion: 2024-12-01-preview
+
+secret:
+  azureOpenAIApiKey: "<open-ai-api-key>"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+volume:
+  size: 1Gi
+  storageClassName: default
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8001
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8001
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+networkPolicy:
+  enabled: true
+  allowedNamespaces:
+    - rag-backend

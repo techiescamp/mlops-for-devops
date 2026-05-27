@@ -1,0 +1,28 @@
+# Ignore .env
+.env
+
+# Ignore Python environment
+.venv/
+venv/
+.myvenv/
+
+# Ignore temp files & build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore json everywhere
+**/*.json
+**.json
+*.json
+
+# Ignore test scripts in all subfolders
+**/testing_bedrock.py
+**/testing_bedrock_*.py
+
+# Ignore temp-docs directory anywhere
+**/.temp-docs/
+
+k8_docs/
+temp-docs/
