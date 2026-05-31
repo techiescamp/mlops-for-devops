@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-env
+  namespace: rag-backend
+data:
+  AWS_REGION: "us-west-2"
+  BEDROCK_LLM_MODEL: "us.amazon.nova-micro-v1:0"
+  VECTOR_DB_URL: "http://vector-store-service.rag-vector-store.svc.cluster.local:8001"
+  MAIN_BACKEND_HOST: "0.0.0.0"
+  MAIN_BACKEND_PORT: "8000"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector-store
+  namespace: rag-vector-store
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vector-store
+  template:
+    metadata:
+      labels:
+        app: vector-store
+    spec:
+      serviceAccountName: rag-service-account
+      containers:
+        - name: vector-store
+          image: catninjauser/regpvector:1.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8001
+          envFrom:
+            - configMapRef:
+                name: vector-store-env
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

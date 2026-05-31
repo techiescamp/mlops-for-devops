@@ -25,6 +25,7 @@ pip-wheel-metadata/
 share/python-wheels/
 .installed.cfg
 MANIFEST
+!phase-3/RAG/k8s-deploy/manifest/
 .Python
 .Python3
 

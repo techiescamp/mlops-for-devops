@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vector-store-env
+  namespace: rag-vector-store
+data:
+  AWS_REGION: "us-west-2"
+  AWS_ACCOUNT_ID: "637423664276"
+  BEDROCK_EMBEDDING_MODEL_ID: "amazon.titan-embed-text-v2:0"
+  S3_VECTOR_BUCKET_NAME: "vector-bucket-demo"
+  S3_VECTOR_INDEX_NAME: "vector-bucket-index"
+  VECTOR_DB_HOST: "0.0.0.0"
+  VECTOR_DB_PORT: "8001"

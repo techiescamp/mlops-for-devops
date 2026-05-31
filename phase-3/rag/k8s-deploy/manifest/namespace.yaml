@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rag-frontend
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rag-backend
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rag-vector-store

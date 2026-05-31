@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sync-env
+  namespace: rag-backend
+data:
+  AWS_REGION: "us-west-2"
+  BEDROCK_EMBEDDING_MODEL_ID: "amazon.titan-embed-text-v2:0"
+  K8_REPO_URL: "https://github.com/kubernetes/website"
+  VECTOR_DB_URL: "http://vector-store-service.rag-vector-store.svc.cluster.local:8001"

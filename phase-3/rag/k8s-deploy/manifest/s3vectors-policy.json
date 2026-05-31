@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "s3vectors:PutVectors",
+      "s3vectors:QueryVectors",
+      "s3vectors:GetVectors",
+      "s3vectors:DeleteVectors"
+    ],
+    "Resource": "*"
+  }]
+}
