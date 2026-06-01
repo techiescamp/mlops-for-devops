@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-backend
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rag-backend.labels" . | nindent 4 }}
+    app: rag-backend
+spec:
+  replicas: {{ .Values.mainBackend.replicaCount }}
+  selector:
+    matchLabels:
+      app: rag-backend
+  template:
+    metadata:
+      labels:
+        app: rag-backend
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: rag-main-backend
+          image: {{ .Values.mainBackend.image.repository }}:{{ .Values.mainBackend.image.tag }}
+          imagePullPolicy: {{ .Values.mainBackend.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.mainBackend.port }}
+          envFrom:
+            - configMapRef:
+                name: backend-env
+          resources:
+            {{- toYaml .Values.mainBackend.resources | nindent 12 }}

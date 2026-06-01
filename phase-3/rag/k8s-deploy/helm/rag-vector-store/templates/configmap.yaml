@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vector-store-env
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rag-vector-store.labels" . | nindent 4 }}
+data:
+  AWS_REGION: {{ .Values.config.awsRegion | quote }}
+  AWS_ACCOUNT_ID: {{ .Values.config.awsAccountId | quote }}
+  BEDROCK_EMBEDDING_MODEL_ID: {{ .Values.config.bedrockEmbeddingModel | quote }}
+  S3_VECTOR_BUCKET_NAME: {{ .Values.config.s3VectorBucketName | quote }}
+  S3_VECTOR_INDEX_NAME: {{ .Values.config.s3VectorIndexName | quote }}
+  VECTOR_DB_HOST: "0.0.0.0"
+  VECTOR_DB_PORT: {{ .Values.service.port | quote }}

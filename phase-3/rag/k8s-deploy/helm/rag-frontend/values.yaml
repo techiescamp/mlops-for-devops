@@ -1,0 +1,23 @@
+namespace: rag-frontend
+
+image:
+  repository: catninjauser/ragfrontend
+  tag: "1.0.2"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30500
+
+mainBackendUrl: "http://rag-backend-service.rag-backend.svc.cluster.local:8000"
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"

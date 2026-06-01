@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-env
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rag-backend.labels" . | nindent 4 }}
+data:
+  AWS_REGION: {{ .Values.config.awsRegion | quote }}
+  BEDROCK_LLM_MODEL: {{ .Values.config.bedrockLlmModel | quote }}
+  VECTOR_DB_URL: {{ .Values.config.vectorDbUrl | quote }}
+  MAIN_BACKEND_HOST: "0.0.0.0"
+  MAIN_BACKEND_PORT: {{ .Values.mainBackend.port | quote }}

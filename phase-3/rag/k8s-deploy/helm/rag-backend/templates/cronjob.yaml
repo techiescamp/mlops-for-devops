@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sync-backend
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rag-backend.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.syncBackend.schedule | quote }}
+  timeZone: {{ .Values.syncBackend.timezone | quote }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: sync-backend
+        spec:
+          serviceAccountName: {{ .Values.serviceAccount.name }}
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-backend
+              image: {{ .Values.syncBackend.image.repository }}:{{ .Values.syncBackend.image.tag }}
+              imagePullPolicy: {{ .Values.syncBackend.image.pullPolicy }}
+              envFrom:
+                - configMapRef:
+                    name: sync-env
+              resources:
+                {{- toYaml .Values.syncBackend.resources | nindent 16 }}

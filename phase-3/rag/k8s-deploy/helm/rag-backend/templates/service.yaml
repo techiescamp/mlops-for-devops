@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-backend-service
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rag-backend.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    app: rag-backend
+  ports:
+    - port: {{ .Values.mainBackend.port }}
+      targetPort: {{ .Values.mainBackend.port }}

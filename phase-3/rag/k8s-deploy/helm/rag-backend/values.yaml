@@ -1,0 +1,41 @@
+namespace: rag-backend
+
+serviceAccount:
+  name: rag-service-account
+
+mainBackend:
+  image:
+    repository: catninjauser/ragmain
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  port: 8000
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+syncBackend:
+  image:
+    repository: catninjauser/ragsync
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  schedule: "0 0 * * *"
+  timezone: "Asia/Kolkata"
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+config:
+  awsRegion: "us-west-2"
+  bedrockLlmModel: "us.amazon.nova-micro-v1:0"
+  bedrockEmbeddingModel: "amazon.titan-embed-text-v2:0"
+  vectorDbUrl: "http://vector-store-service.rag-vector-store.svc.cluster.local:8001"
+  k8RepoUrl: "https://github.com/kubernetes/website"
