@@ -11,7 +11,6 @@ function App() {
           <span className='logo'>DM</span>
           <span>DocuMancer</span>
         </h1>
-<p className='copyright'>Powered by <span>&copy; techiescamp 2025</span></p>
       </header>
       
       <Chatbot />
