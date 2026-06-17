@@ -35,15 +35,17 @@ def search_vectors(s3_vectors_client, index_arn: str, query_vector: List[float],
         returnMetadata=True,
         returnDistance=True
     )
-    return [{
+    vectors = response.get("vectors", [])
+    results = [{
         "key":      doc.get("key"),
         "score":    float(doc.get("distance")) if doc.get("distance") is not None else None,
         "content":  doc.get("metadata", {}).get("content"),
         "metadata": doc.get("metadata")
-    } for doc in response.get("vectors", [])]
+    } for doc in vectors]
+    return results, vectors
 
 
 def retrieve(bedrock_rt, s3_vectors_client, embedding_model_id: str, index_arn: str, query: str, top_k: int = 5):
     embedding, token_count = embed_query(bedrock_rt, embedding_model_id, query)
-    results = search_vectors(s3_vectors_client, index_arn, embedding, top_k)
-    return results, token_count
+    results, raw_vectors = search_vectors(s3_vectors_client, index_arn, embedding, top_k)
+    return results, token_count, raw_vectors

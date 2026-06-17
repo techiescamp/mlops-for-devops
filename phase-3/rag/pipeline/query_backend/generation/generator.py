@@ -1,4 +1,4 @@
-def generate(bedrock_client, model_id: str, messages: list, system_prompt: str) -> str:
+def generate(bedrock_client, model_id: str, messages: list, system_prompt: str):
     response = bedrock_client.converse(
         modelId=model_id,
         system=[{'text': system_prompt}],
@@ -8,4 +8,5 @@ def generate(bedrock_client, model_id: str, messages: list, system_prompt: str) 
             "temperature": 0.7
         }
     )
-    return response["output"]["message"]["content"][0]["text"]
+    output_text = response["output"]["message"]["content"][0]["text"]
+    return output_text, response

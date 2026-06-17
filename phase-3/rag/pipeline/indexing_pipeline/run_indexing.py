@@ -80,13 +80,25 @@ def run_pipeline():
     successful_batches = 0
     token_count = 0
 
+    # Import metrics pushing helper
+    import sys
+    sys.path.insert(0, os.path.join(BASE_DIR, '../../rag-monitoring'))
+    from cloudwatch_client import push_metric
+
+    embedding_start_time = time.time()
+
     for i in range(0, len(chunks), EMBEDDING_BATCH_SIZE):
         batch = chunks[i:i + EMBEDDING_BATCH_SIZE]
         batch_num = i // EMBEDDING_BATCH_SIZE + 1
         total_batches = (len(chunks) + EMBEDDING_BATCH_SIZE - 1) // EMBEDDING_BATCH_SIZE
         print(f"\nProcessing batch {batch_num}/{total_batches}")
 
-        payload_items, token_count = process_batch(bedrock_rt, EMBEDDING_MODEL_ID, batch, token_count)
+        try:
+            payload_items, token_count = process_batch(bedrock_rt, EMBEDDING_MODEL_ID, batch, token_count)
+        except Exception as e:
+            push_metric("EmbeddingError", 1, "Count", namespace="RAG/Embeddings")
+            raise e
+
         if not payload_items:
             print("Skipping empty batch...")
             continue
@@ -101,6 +113,7 @@ def run_pipeline():
                 time.sleep(BATCH_DELAY)
             except Exception as e:
                 print(f"❌ Failed to store batch: {e}")
+                push_metric("IngestionError", 1, "Count", namespace="RAG/Embeddings")
                 time.sleep(RATE_LIMIT_DELAY)
                 try:
                     result = store_vectors(s3_vectors, INDEX_ARN, store_batch)
@@ -108,6 +121,12 @@ def run_pipeline():
                     print(f"✅ Stored batch {successful_batches} on retry")
                 except Exception as retry_e:
                     print(f"❌ Retry also failed: {retry_e}")
+                    push_metric("IngestionError", 1, "Count", namespace="RAG/Embeddings")
+
+    embedding_latency = time.time() - embedding_start_time
+    push_metric("IndexSizeVectors", total_processed, "Count", namespace="RAG/Embeddings")
+    push_metric("EmbeddingVectorsLatency", embedding_latency, "Seconds", namespace="RAG/Embeddings")
+    push_metric("IndexFreshnessDays", 0, "Count", namespace="RAG/Embeddings")
 
     print(f"\n✅ Indexing complete — documents: {total_processed}, batches: {successful_batches}")
 

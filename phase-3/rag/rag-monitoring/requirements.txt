@@ -1,0 +1,10 @@
+# AWS
+boto3
+botocore
+
+# Retrieval metrics
+numpy>=1.26
+scikit-learn
+
+# Dashboard deployment
+python-dotenv
