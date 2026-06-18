@@ -10,7 +10,7 @@ class RAGCloudWatchLogger:
 
     def push_metric(self, name, value, unit='None', namespace=None, dimensions=None):
         """
-        Pushes a custom metric to Amazon CloudWatch.
+        Sends custom metric to Amazon CloudWatch.
         """
         ns = namespace or self.namespace
         metric_data = {

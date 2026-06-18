@@ -12,7 +12,8 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "../pipeline/.env"))
 
 AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
 BEDROCK_LLM_MODEL = os.environ.get("BEDROCK_LLM_MODEL")
-DASHBOARD_NAME = os.environ.get("RAG_DASHBOARD_NAME", "RAG-Local-Monitoring")
+BEDROCK_EMBED_MODEL = os.environ.get("BEDROCK_EMBEDDING_MODEL_ID")
+DASHBOARD_NAME = os.environ.get("RAG_DASHBOARD_NAME", "RAG-dashboard")
 
 
 def text_widget(markdown, x, y, width=24, height=1):
@@ -52,6 +53,12 @@ def bedrock_metric(metric_name, stat="Sum"):
     return ["AWS/Bedrock", metric_name, "ModelId", BEDROCK_LLM_MODEL, {"stat": stat}]
 
 
+def embed_metric(metric_name, stat="Sum"):
+    if not BEDROCK_EMBED_MODEL:
+        return None
+    return ["AWS/Bedrock", metric_name, "ModelId", BEDROCK_EMBED_MODEL, {"stat": stat}]
+
+
 def compact_metrics(metrics):
     return [metric for metric in metrics if metric]
 
@@ -64,6 +71,12 @@ def build_dashboard_body():
     bedrock_throttles = bedrock_metric("InvocationThrottles", "Sum")
     bedrock_client_errors = bedrock_metric("InvocationClientErrors", "Sum")
     bedrock_server_errors = bedrock_metric("InvocationServerErrors", "Sum")
+    bedrock_tpm_quota = bedrock_metric("EstimatedTPMQuotaUsage", "Maximum")
+
+    embed_invocations = embed_metric("Invocations", "Sum")
+    embed_latency = embed_metric("InvocationLatency", "Average")
+    embed_input_tokens = embed_metric("InputTokenCount", "Sum")
+    embed_tpm_quota = embed_metric("EstimatedTPMQuotaUsage", "Maximum")
 
     widgets = [
         text_widget(
@@ -241,6 +254,28 @@ def build_dashboard_body():
                     compact_metrics([bedrock_throttles, bedrock_client_errors, bedrock_server_errors]),
                     0,
                     49,
+                    width=24,
+                ),
+                text_widget("### Titan Embed Text v2 — Retrieval Model", 0, 55),
+                metric_widget(
+                    "Embed Invocations and Latency",
+                    compact_metrics([embed_invocations, embed_latency]),
+                    0,
+                    56,
+                    width=12,
+                ),
+                metric_widget(
+                    "Embed Input Tokens",
+                    compact_metrics([embed_input_tokens]),
+                    12,
+                    56,
+                    width=12,
+                ),
+                metric_widget(
+                    "TPM Quota Usage — Both Models",
+                    compact_metrics([bedrock_tpm_quota, embed_tpm_quota]),
+                    0,
+                    62,
                     width=24,
                 ),
             ]

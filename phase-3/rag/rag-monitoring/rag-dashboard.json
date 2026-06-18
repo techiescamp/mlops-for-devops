@@ -1,0 +1,471 @@
+{
+    "widgets": [
+        {
+            "type": "text",
+            "x": 0,
+            "y": 0,
+            "width": 24,
+            "height": 2,
+            "properties": {
+                "markdown": "# RAG Monitoring - Local App to AWS CloudWatch\nCustom RAG metrics are pushed by the local app. Bedrock service metrics are read from AWS/Bedrock."
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 2,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "## 1. Local RAG App - Custom Metrics"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 3,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "EndToEndLatency", { "stat": "Average", "label": "Average" } ],
+                    [ ".", ".", { "stat": "p95", "label": "p95" } ],
+                    [ ".", ".", { "stat": "p99", "label": "p99" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "End-to-End Query Latency",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 3,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Retrieval", "RetrievalLatency", { "stat": "Average", "label": "Retrieval" } ],
+                    [ "RAG/Generation", "LLMLatency", { "stat": "Average", "label": "LLM generation" } ],
+                    [ ".", "LLMLatencyBedrock", { "stat": "Average", "label": "Bedrock reported" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Stage Latency Split",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 9,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "## 2. Retrieval and S3 Vector Store View"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 10,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Retrieval", "RetrievedDocsCount", { "stat": "Average" } ],
+                    [ "RAG/VectorDB", "IndexHealthStatus", { "stat": "Average" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Retrieval Health",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 8,
+            "y": 10,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/VectorDB", "AvgSimilarity", { "stat": "Average" } ],
+                    [ ".", "PrecisionProxy", { "stat": "Average" } ],
+                    [ ".", "RecallProxy", { "stat": "Average" } ]
+                ],
+                "view": "gauge",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Retrieval Quality Proxies",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 16,
+            "y": 10,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/VectorDB", "QueryFailures", { "stat": "Sum" } ],
+                    [ "RAG/Retrieval", "RetrievalFailures", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Vector Query Failures",
+                "period": 300
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 16,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "## 3. Generation Quality - Custom RAG Metrics"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 17,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "FaithfulnessScore", { "stat": "Average" } ],
+                    [ ".", "HallucinationRate", { "stat": "Average" } ]
+                ],
+                "view": "gauge",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Groundedness and Hallucination",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 8,
+            "y": 17,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "AnswerRelevance", { "stat": "Average", "label": "Answer Relevance" } ],
+                    [ ".", "ContextUtilization", { "stat": "Average", "label": "Context Utilization" } ]
+                ],
+                "view": "gauge",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Answer Relevance and Context Utilization",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 16,
+            "y": 17,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "RefusalRate", { "stat": "Average" } ]
+                ],
+                "view": "singleValue",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Refusal Rate",
+                "period": 300,
+                "sparkline": true
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 23,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "ResponseLength", { "stat": "Average" } ]
+                ],
+                "view": "singleValue",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Response Length",
+                "period": 300,
+                "sparkline": true
+            }
+        },
+        {
+            "type": "metric",
+            "x": 8,
+            "y": 23,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "CostPerQuery", { "stat": "Average", "label": "Avg cost" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Cost Per Query (USD)",
+                "period": 300,
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 16,
+            "y": 23,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Generation", "LLMInputTokens", { "stat": "Sum" } ],
+                    [ ".", "LLMOutputTokens", { "stat": "Sum" } ],
+                    [ ".", "LLMTotalTokens", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Custom Token Metrics",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 29,
+            "width": 8,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Retrieval", "HitRate", { "stat": "Average" } ]
+                ],
+                "view": "singleValue",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Hit Rate",
+                "period": 300,
+                "sparkline": true
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 35,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "## 4. Indexing and Sync Metrics"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 36,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Embeddings", "IndexSizeVectors", { "stat": "Maximum" } ],
+                    [ ".", "EmbeddingVectorsLatency", { "stat": "Average" } ],
+                    [ ".", "IndexFreshnessDays", { "stat": "Maximum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Embedding and Sync Progress",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 36,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "RAG/Embeddings", "IngestionError", { "stat": "Sum" } ],
+                    [ ".", "EmbeddingError", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Embedding and Ingestion Errors",
+                "period": 300
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 42,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "## 5. Amazon Bedrock Native Metrics"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 43,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "Invocations", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ],
+                    [ "AWS/Bedrock", "InvocationLatency", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Average" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Bedrock Invocations and Latency",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 43,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "InputTokenCount", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ],
+                    [ "AWS/Bedrock", "OutputTokenCount", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Bedrock Token Counts",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 49,
+            "width": 24,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "InvocationThrottles", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ],
+                    [ "AWS/Bedrock", "InvocationClientErrors", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ],
+                    [ "AWS/Bedrock", "InvocationServerErrors", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Bedrock Service Errors and Throttles",
+                "period": 300
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 55,
+            "width": 24,
+            "height": 1,
+            "properties": {
+                "markdown": "### Titan Embed Text v2 — Retrieval Model"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 56,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "Invocations", "ModelId", "amazon.titan-embed-text-v2:0", { "stat": "Sum" } ],
+                    [ "AWS/Bedrock", "InvocationLatency", "ModelId", "amazon.titan-embed-text-v2:0", { "stat": "Average" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Embed Invocations and Latency",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 56,
+            "width": 12,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "InputTokenCount", "ModelId", "amazon.titan-embed-text-v2:0", { "stat": "Sum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "Embed Input Tokens",
+                "period": 300
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 62,
+            "width": 24,
+            "height": 6,
+            "properties": {
+                "metrics": [
+                    [ "AWS/Bedrock", "EstimatedTPMQuotaUsage", "ModelId", "us.amazon.nova-micro-v1:0", { "stat": "Maximum" } ],
+                    [ "AWS/Bedrock", "EstimatedTPMQuotaUsage", "ModelId", "amazon.titan-embed-text-v2:0", { "stat": "Maximum" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "us-west-2",
+                "title": "TPM Quota Usage — Both Models",
+                "period": 300
+            }
+        }
+    ]
+}
