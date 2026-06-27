@@ -1,0 +1,9 @@
+langchain-aws
+boto3
+langchain_community
+langchain_core
+fastapi
+uvicorn
+python-dotenv
+scikit-learn
+requests

@@ -1,0 +1,9 @@
+langchain_community
+langchain-aws
+boto3
+langchain
+fastapi
+pydantic
+uvicorn
+faiss-cpu
+python-dotenv

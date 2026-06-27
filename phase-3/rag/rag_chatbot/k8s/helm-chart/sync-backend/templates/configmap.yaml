@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: rag-{{ .Release.Name }}-configmap
+    namespace: {{ .Release.Namespace }}
+data:
+    AZURE_ENDPOINT: {{ .Values.config.azureOpenAIEndpoint }}
+    AZURE_EMBEDDING_DEPLOYMENT: {{ .Values.config.azureEmbeddingModel }}
+    AZURE_EMBEDDING_VERSION: {{ .Values.config.azureEmbeddingModelVersion }}
+    K8_URL: {{ .Values.config.k8sGitHubUrl }}
+    VECTOR_DB_URL: {{ .Values.config.vectorStoreUrl }}

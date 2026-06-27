@@ -1,0 +1,53 @@
+.App {
+  margin: 0 auto;
+  padding: 10px 20px;
+  height: 100vh;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin: 0 0 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  border: 1px solid;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: #ccc;
+  margin: 10px auto;
+  display: block;
+  width: fit-content;
+}
+
+.header h1 {
+  margin: 20px 0;
+  color: #1a1a1a;
+  font-size: 24px;
+}
+
+.copyright {
+  margin: 5px 0 0;
+  color: #212020;
+  font-size: 14px;
+}
+
+.copyright span {
+  color: green;
+}
+
+.header-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-details p {
+  padding: 10px 15px;
+  margin: 0 0 20px;
+  background-color: #c9c9c9d2;
+  border-radius: 10px;
+  font-size: 14px;
+}

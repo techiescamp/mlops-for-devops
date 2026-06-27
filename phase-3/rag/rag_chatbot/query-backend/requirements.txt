@@ -1,0 +1,13 @@
+langchain-aws
+boto3
+langchain_community
+langchain_core
+faiss-cpu
+markdown
+tiktoken
+fastapi
+pydantic
+uvicorn
+python-dotenv
+scikit-learn
+requests

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: rag-frontend
+description: A Helm chart for RAG Frontend
+version: 0.1.0
+appVersion: "1.0.0"

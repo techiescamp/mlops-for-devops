@@ -1,0 +1,29 @@
+spec:
+  schedule: 0 0 * * *
+  timeZone: Asia/Kolkata
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  restartPolicy: OnFailure
+
+image:
+  repository: techiescamp/rag-sync-backend
+  tag: 8.0.0
+
+config:
+  azureOpenAIEndpoint: <open-ai-endpoint>
+  azureEmbeddingModel: text-embedding-3-small
+  azureEmbeddingModelVersion: 2024-12-01-preview
+  k8sGitHubUrl: https://github.com/kubernetes/website
+  vectorStoreUrl: http://rag-vector-store-service.rag-storage.svc.cluster.local:8001
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+secret:
+  azureOpenAIApiKey: "<open-ai-api-key>"

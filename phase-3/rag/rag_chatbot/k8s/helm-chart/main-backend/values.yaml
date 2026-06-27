@@ -1,0 +1,47 @@
+replicaCount: 1
+
+image:
+  repository: techiescamp/rag-backend
+  tag: 4.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+config:
+  azureOpenAIEndpoint: <open-ai-endpoint>
+  azureOpenAIllmModel: gpt-4o-mini
+  azureOpenAIllmModelVersion: 2024-05-01-preview
+  vectorStoreUrl: http://rag-vector-store-service.rag-storage.svc.cluster.local:8001
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+secret:
+  azureOpenAIApiKey: "<open-ai-api-key>"
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8000
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8000
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+networkPolicy:
+  enabled: true
+  allowedNamespaces:
+    - rag-frontend
+    - rag-storage
