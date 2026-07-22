@@ -74,20 +74,23 @@ const Chatbot = () => {
                 });
         };
 
-        return !inline && language && (
+        return !inline && language ? (
             <div className='code-container'>
                 <div className='code-language'>
                     {language.toLowerCase()}
                     <button className='copy' onClick={handleCopy}>copy</button>
                 </div>
 
-                <SyntaxHighlighter className='code-highlighter' style={prism} PreTag='div' language={match[1]} {...props} >
+                <SyntaxHighlighter className='code-highlighter' style={prism} PreTag='div' language={language} {...props} >
                     {String(children).replace(/\n$/, '')}
                 </SyntaxHighlighter>
             </div>
-        )
-    }
-
+        ): (
+        <code className={`${className}`} {...props}>
+            {children}
+        </code>
+    )
+}
     // show details button
     const handleDetails = () => {
         setShowDetails(prev => !prev)

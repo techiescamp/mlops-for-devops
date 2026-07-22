@@ -27,3 +27,8 @@ vector_store
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Ignore accidental package-lock.json or package.json in the rag_chatbot root directory
+/package-lock.json
+/package.json
+
