@@ -23,7 +23,7 @@ load_dotenv(os.path.join(BASE_DIR, '../.env'))
 AWS_REGION           = os.environ["AWS_REGION"]
 AWS_ACCOUNT_ID       = os.environ["AWS_ACCOUNT_ID"]
 EMBEDDING_MODEL_ID   = os.environ["BEDROCK_EMBEDDING_MODEL_ID"]
-REPO_URL             = os.environ["K8_REPO_URL"]
+REPO_URL             = os.environ["REPO_URL"]
 S3_VECTOR_BUCKET     = os.environ["S3_VECTOR_BUCKET_NAME"]
 S3_VECTOR_INDEX      = os.environ["S3_VECTOR_INDEX_NAME"]
 

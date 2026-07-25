@@ -11,12 +11,12 @@ from pathlib import Path
 TOKEN_LOG_FILE = Path("token_log.json")
 HASH_DB_PATH = Path("hash_files.json")
 TEMP_DIR = Path(os.path.abspath("./temp-docs"))
-TARGET_DIR = Path(os.path.abspath("./k8_docs/en"))
+TARGET_DIR = Path(os.path.abspath("./repo_docs"))
 
 
 def clone_or_pull_repo(repo_url):
     if not TEMP_DIR.exists():
-        print("✅ Cloning Kubernetes docs repo...")
+        print(f"✅ Cloning docs repo: {repo_url}")
         subprocess.run(["git", "clone", repo_url, str(TEMP_DIR)], check=True)
     else:
         print("✅ Pulling latest changes...")
@@ -24,34 +24,41 @@ def clone_or_pull_repo(repo_url):
 
 
 def copy_docs():
-    base_dir = TEMP_DIR / "content" / "en" / "docs"
-    selected_dirs = ["concepts"]
+    """Copy every .md file found under REPO_DOCS_PATH (or the whole repo, if
+    unset) into TARGET_DIR, preserving each file's path relative to the source
+    root. Leaving REPO_DOCS_PATH unset works for any repo's layout with no
+    assumptions about a fixed docs folder; setting it scopes indexing to a
+    specific subfolder (e.g. content/en/docs/concepts for kubernetes/website),
+    which also avoids pulling in translated docs, blog posts, etc."""
+    docs_subpath = os.environ.get("REPO_DOCS_PATH", "").strip().strip("/")
+    source_root = (TEMP_DIR / docs_subpath) if docs_subpath else TEMP_DIR
 
-    print(f"Base directory: {base_dir}")
+    print(f"Source directory: {source_root}")
     print(f"Target directory: {TARGET_DIR}")
 
-    for subdir in selected_dirs:
-        source_subdir = base_dir / subdir
-        if not source_subdir.exists():
-            print(f"⚠️ Source directory does not exist: {source_subdir}")
-            continue
+    if not source_root.exists():
+        print(f"⚠️ REPO_DOCS_PATH does not exist in repo: {source_root}")
+        return
 
-        print(f"✅ Copying docs from {source_subdir} to {TARGET_DIR}/{subdir}...")
-        target_subdir = TARGET_DIR / subdir
-        target_subdir.mkdir(parents=True, exist_ok=True)
+    if TARGET_DIR.exists():
+        shutil.rmtree(TARGET_DIR)
+    TARGET_DIR.mkdir(parents=True, exist_ok=True)
 
-        for file in source_subdir.glob("**/*.md"):
-            relative_path = file.relative_to(source_subdir)
-            dest_file = target_subdir / relative_path
-            dest_file.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, dest_file)
-            print(f"📄 Copied: {file} -> {dest_file}")
+    copied = 0
+    for file in source_root.glob("**/*.md"):
+        relative_path = file.relative_to(source_root)
+        dest_file = TARGET_DIR / relative_path
+        dest_file.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file, dest_file)
+        copied += 1
+
+    print(f"✅ Copied {copied} markdown files to {TARGET_DIR}")
 
 
 def load_md_files():
     md_files = []
     try:
-        search_path = os.path.join(TARGET_DIR, "concepts", "**", "*.md")
+        search_path = os.path.join(TARGET_DIR, "**", "*.md")
         print(f"Searching for markdown files in: {search_path}")
         for filepath in glob.glob(search_path, recursive=True):
             print(f"Found file: {filepath}")

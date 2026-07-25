@@ -23,6 +23,20 @@ def chunk_list(lst: List[Any], size: int):
         yield lst[i:i + size]
 
 
+# S3 Vectors rejects a whole put_vectors call if any single record's
+# filterable metadata exceeds this limit, so a single oversized chunk can
+# drop an entire batch of otherwise-valid vectors.
+MAX_METADATA_BYTES = 2048
+METADATA_HEADROOM_BYTES = 200  # room for the other metadata keys stored alongside content
+
+
+def _truncate_to_byte_limit(text: str, max_bytes: int) -> str:
+    encoded = text.encode("utf-8")
+    if len(encoded) <= max_bytes:
+        return text
+    return encoded[:max_bytes].decode("utf-8", errors="ignore")
+
+
 def store_vectors(s3_vectors_client, index_arn: str, items: list, batch_size: int = 100):
     if not items:
         return {"status": "error", "stored": 0}
@@ -31,7 +45,9 @@ def store_vectors(s3_vectors_client, index_arn: str, items: list, batch_size: in
     for idx, item in enumerate(items):
         key = item.get("metadata", {}).get("id") or f"doc-{int(time.time()*1000)}-{idx}"
         metadata_with_content = dict(item["metadata"])
-        metadata_with_content["content"] = item["content"]
+        metadata_with_content["content"] = _truncate_to_byte_limit(
+            item["content"], MAX_METADATA_BYTES - METADATA_HEADROOM_BYTES
+        )
         vectors_payload.append({
             "key": key,
             "data": {"float32": as_float32_vec(item["embeddings"])},

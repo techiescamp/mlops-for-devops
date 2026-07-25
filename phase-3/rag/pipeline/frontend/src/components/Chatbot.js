@@ -98,7 +98,7 @@ const Chatbot = () => {
         <div className='chatbot-messages'>
             {messages.length === 0 ? (
                 <div className='chatbot-welcome'>
-                    <p>Hello! I'm your chatbot assistant. Ask me anything about Kubernetes and I will help you with your doubts.</p>
+                    <p>Hello! I'm your chatbot assistant. Ask me anything about the indexed docs and I will help you with your doubts.</p>
                 </div>
             ) : (
                 messages.map((msg, index) => (

@@ -6,14 +6,17 @@
 # Hash tracking file
 hash_files.json
 
+# Token usage log
+token_log.json
+
 # Virtual environments
 myvenv/
 venv/
 .venv/
 env/
 
-# Kubernetes docs (cloned repo)
-indexing_pipeline/k8_docs/
+# Repo docs (cloned repo)
+indexing_pipeline/repo_docs/
 
 # Temp docs
 indexing_pipeline/temp-docs/
