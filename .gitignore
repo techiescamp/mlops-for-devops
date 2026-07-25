@@ -32,6 +32,7 @@ MANIFEST
 # Virtual environments (applies to ALL subdirectories automatically)
 .venv/
 venv/
+myvenv/
 env/
 ENV/
 env.bak/
@@ -206,6 +207,11 @@ temp/
 phase-3/rag/Vectorless RAG/backend/k8s-website-repo/
 phase-3/rag/Vectorless RAG/frontend/
 phase-3/rag/Vectorless RAG/backend/k8s-concepts/
+
+# -----------------------------------------------------------------------------
+# Not ready to push yet
+# -----------------------------------------------------------------------------
+phase-3/rag/RAG-Evaluation/
 
 # -----------------------------------------------------------------------------
 # Secrets & Credentials

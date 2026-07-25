@@ -1,5 +1,6 @@
 *.json
 .env
 
-./temp-docs
-./k8_docs
+temp-docs
+k8_docs
+docs

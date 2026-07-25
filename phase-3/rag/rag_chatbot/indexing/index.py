@@ -22,12 +22,12 @@ HASH_DB_PATH = Path("hash_files.json")
 
 # # Load environment variables
 # load_dotenv()
-REPO_URL = os.environ["K8_URL"]
+REPO_URL = os.environ.get("REPO_URL") or os.environ["K8_URL"]
 VECTOR_DB_URL = os.environ["VECTOR_DB_URL"]
 
 # Constants
 TEMP_DIR = Path(os.path.abspath("./temp-docs"))
-TARGET_DIR = Path(os.path.abspath("./k8_docs/en"))
+TARGET_DIR = Path(os.path.abspath("./docs"))
 
 # Batch configuration
 EMBEDDING_BATCH_SIZE = 100  # Reduced batch size for embeddings
@@ -50,7 +50,7 @@ session.mount("https://", http_adapter)
 
 def clone_or_pull_repo():
     if not TEMP_DIR.exists():
-        print("✅ Cloning Kubernetes docs repo...")
+        print(f"✅ Cloning repo: {REPO_URL}")
         subprocess.run(["git", "clone", REPO_URL, str(TEMP_DIR)], check=True)
     else:
         print("✅ Pulling latest changes...")
@@ -58,45 +58,38 @@ def clone_or_pull_repo():
 
 
 def copy_docs():
-    base_dir = TEMP_DIR / "content" / "en" / "docs"
-    # selected_subdirs = ["concepts", "reference", "setup", "tasks"]
-    selected_subdirs = ["concepts"]
-
-    print(f"Base directory: {base_dir}")
+    """Copy every .md file found anywhere in the cloned repo into TARGET_DIR,
+    preserving each file's path relative to the repo root."""
+    print(f"Base directory: {TEMP_DIR}")
     print(f"Target directory: {TARGET_DIR}")
 
-    for subdir in selected_subdirs:
-        source_subdir = base_dir / subdir
-        if not source_subdir.exists():
-            print(f"⚠️ Source directory does not exist: {source_subdir}")
-            continue
+    if TARGET_DIR.exists():
+        shutil.rmtree(TARGET_DIR)
+    TARGET_DIR.mkdir(parents=True, exist_ok=True)
 
-        print(f"✅ Copying docs from {source_subdir} to {TARGET_DIR}/{subdir}...")
-        
-        # Create the target subdirectory
-        target_subdir = TARGET_DIR / subdir
-        target_subdir.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for file in TEMP_DIR.glob("**/*.md"):
+        relative_path = file.relative_to(TEMP_DIR)
+        dest_file = TARGET_DIR / relative_path
+        dest_file.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file, dest_file)
+        copied += 1
 
-        # Copy all markdown files with their directory structure
-        for file in source_subdir.glob("**/*.md"):
-            relative_path = file.relative_to(source_subdir)
-            dest_file = target_subdir / relative_path
-            dest_file.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file, dest_file)
-            print(f"📄 Copied: {file} -> {dest_file}")
+    print(f"✅ Copied {copied} markdown files to {TARGET_DIR}")
 
 
 def load_md_files():
     md_files = []
     try:
-        search_path = os.path.join(TARGET_DIR, "concepts", "**", "*.md")
+        search_path = os.path.join(TARGET_DIR, "**", "*.md")
         print(f"Searching for markdown files in: {search_path}")
         for filepath in glob.glob(search_path, recursive=True):
             print(f"Found file: {filepath}")
+            relative_path = os.path.relpath(filepath, TARGET_DIR)
             with open(filepath, 'r', encoding='utf-8') as f:
                 text = f.read()
             md_files.append({
-                'filename': os.path.basename(filepath),
+                'filename': relative_path,
                 'content': text,
             })
     except Exception as e:

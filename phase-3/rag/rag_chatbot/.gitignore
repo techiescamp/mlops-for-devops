@@ -2,6 +2,7 @@
 *.env
 
 venv
+myvenv
 hash_files.json
 __pycache__
 filename_embeddings.pkl
