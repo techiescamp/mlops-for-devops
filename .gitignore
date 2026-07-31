@@ -205,7 +205,6 @@ temp/
 # Embedded git repos (cloned separately, not tracked as submodules)
 # -----------------------------------------------------------------------------
 phase-3/rag/Vectorless RAG/backend/k8s-website-repo/
-phase-3/rag/Vectorless RAG/frontend/
 phase-3/rag/Vectorless RAG/backend/k8s-concepts/
 
 # -----------------------------------------------------------------------------
