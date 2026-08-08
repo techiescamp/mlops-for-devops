@@ -7,7 +7,7 @@ A hands-on, project-based guide to Machine Learning Operations built specificall
 If you are completely new to MLOps, read our [DevOps to MLOps guide](https://devopscube.com/devops-to-mlops/) first.
 
 ---
-If you are planning to use this repo for learning MLOps, please hit the star. Thanks!
+🌟🌟 If you are planning to use this repo for learning MLOps, please hit the star. Thanks!🌟🌟
 
 ---
 ## Table of Contents
@@ -15,13 +15,10 @@ If you are planning to use this repo for learning MLOps, please hit the star. Th
 - [Who This Is For](#who-this-is-for)
 - [What We Build](#what-we-build)
 - [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
 - [Phase 1: Local Dev & Pipelines](#phase-1-local-development--data-pipelines)
 - [Phase 2: Enterprise Orchestration for ML](#phase-2-enterprise-orchestration-for-ml)
-- [Learning Path](#learning-path)
-- [Tech Stack](#tech-stack)
-- [Recommended Reading](#recommended-reading)
-- [License](#license)
-
+- [Recommended MLOps Reading](#recommended-reading)
 ---
 
 ## Who This Is For
@@ -39,6 +36,20 @@ We will start with the basics of building and training a classic ML model, then 
 Just like a DevOps engineer doesn't write the application but understands how it is built and deployed, an MLOps engineer doesn't need to be a data scientist. Understanding the ML workflow helps you build, automate, deploy, and troubleshoot ML systems effectively.
 
 Everything in this roadmap **runs on Kubernetes and Docker**, and tools you will use in real-world MLOps platforms.
+
+---
+## Tech Stack
+
+Here is the tech stack you will be using in this setup.
+
+| Category | Tools |
+|----------|-------|
+| Data Pipeline | Python, Airflow |
+| Model Training | scikit-learn |
+| API / Serving | FastAPI, Flask, Docker, KServe |
+| ML Orchestration | Kubeflow, MLflow Pipelines |
+| Monitoring | Evidently AI |
+| Infrastructure | Kubernetes, Helm |
 
 ---
 
@@ -94,32 +105,6 @@ Code: `phase-2-enterprise-setup/`
 In this capstone project, you'll build a production-style MLOps platform on Kubernetes by combining everything you've learned throughout this series.
 
 By the end, you'll have built an enterprise-grade MLOps workflow that mirrors how modern organizations develop, train, track, and operate machine learning models on Kubernetes.
-
----
-
-## Learning Path
-
-| Phase | Track | Title | Status |
-|-------|-------|-------|--------|
-| 1 | 🤖 Traditional ML | [Local Dev & Pipelines](#phase-1-local-development--data-pipelines) | ✅ Done |
-| 1 | 🤖 Traditional ML | K8s Deploy & Model Serving | ✅ Done |
-| 3 | 🤖 Traditional ML | Enterprise Orchestration |  ✅ Done |
-| 4 | 🤖 Traditional ML | Monitor & Observe |  ✅ Done |
-
----
-
-## Tech Stack
-
-Here is the tech stack you will be using in this setup.
-
-| Category | Tools |
-|----------|-------|
-| Data Pipeline | Python, Airflow |
-| Model Training | scikit-learn |
-| API / Serving | FastAPI, Flask, Docker, KServe |
-| ML Orchestration | Kubeflow, MLflow Pipelines |
-| Monitoring | Evidently AI |
-| Infrastructure | Kubernetes, Helm |
 
 ---
 
