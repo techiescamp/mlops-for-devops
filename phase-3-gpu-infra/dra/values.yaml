@@ -1,0 +1,23 @@
+clusterPolicy:
+  deployCR: false
+
+driver:
+  enabled: true
+  nvidiaDriverCRD:
+    enabled: true
+
+gpuCluster:
+  deployCR: true
+
+draDriver:
+  featureGates:
+    TimeSlicingSettings: true
+    MPSSupport: false
+    ConsumableShares: true
+    DynamicMIG: true
+    
+  gpus:
+    kubeletPlugin:
+      env:
+      - name: CONSUMABLE_SHARES
+        value: memory
