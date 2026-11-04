@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpu-workload
+  namespace: dra-lab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gpu-workload
+  template:
+    metadata:
+      labels:
+        app: gpu-workload
+    spec:
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      resourceClaims:
+        - name: gpu
+          resourceClaimTemplateName: gpu-template
+      containers:
+        - name: workload
+          image: ubuntu:22.04
+          command: ["bash", "-c"]
+          args: ["nvidia-smi -L; sleep 3600"]
+          resources:
+            claims:
+              - name: gpu

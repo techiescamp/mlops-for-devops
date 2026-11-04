@@ -1,0 +1,13 @@
+apiVersion: resource.k8s.io/v1
+kind: DeviceTaintRule
+metadata:
+  name: gpu-taint
+spec:
+  deviceSelector:
+    driver: gpu.nvidia.com
+    pool: pool-bjr31gsgd-3ejebp
+    device: gpu-0
+  taint:
+    key: example.com/unhealthy
+    value: scheduled
+    effect: NoSchedule
