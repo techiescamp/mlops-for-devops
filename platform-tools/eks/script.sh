@@ -2,7 +2,7 @@
 
 set -e
 
-ACTION=$1  # create | delete
+ACTION=$1  # create | delete by akshay 
 
 # -------- Config --------
 CLUSTER_NAME="mlops-spot-cluster"
